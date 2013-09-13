@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="text_view_from_age" type="id"/>
+    <item name="text_view_to_age" type="id"/>
+</resources>

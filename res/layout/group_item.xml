@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="80dp"
+    android:paddingBottom="2dp"
+    android:paddingLeft="8dp"
+    android:paddingRight="8dp"  >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@+id/notificationBalloon"
+        android:background="@drawable/white_selector"
+        android:paddingRight="6dp" >
+
+        <RelativeLayout
+            android:id="@+id/rlImage"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="5dp"
+            android:gravity="center" >
+
+            <ImageView
+                android:id="@+id/ivGroupImage"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:background="@color/loading_background"
+                android:contentDescription="@null"
+                android:scaleType="fitXY" />
+
+            <ProgressBar
+                android:id="@+id/pbLoadingForImage"
+                style="@style/CustomProgressBar"
+                android:layout_width="30px"
+                android:layout_height="30px"
+                android:layout_centerInParent="true"
+                android:visibility="visible" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tvGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="6dp"
+            android:layout_toLeftOf="@+id/llGroupIndicators"
+            android:layout_toRightOf="@+id/rlImage"
+            android:textColor="#444444"
+            android:textIsSelectable="false"
+            android:textSize="18sp" />
+
+        <LinearLayout
+            android:id="@+id/llGroupIndicators"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="8dp"
+            android:layout_marginRight="8dp"
+            android:gravity="bottom|center_horizontal"
+            android:orientation="horizontal"
+            android:weightSum="2" >
+
+            <ImageView
+                android:id="@+id/ivFavorites"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="17dp"
+                android:layout_weight="1"
+                android:background="@drawable/not_in_favorites_icon"
+                android:contentDescription="@null" />
+
+            <TextView
+                android:id="@+id/tvMessages"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/messages_icon"
+                android:contentDescription="@null"
+                android:gravity="bottom|center_horizontal"
+                android:textColor="@color/hookup_alert"
+                android:textSize="11sp" />
+
+            <ImageView
+                android:id="@+id/ivOnlineStatus"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginLeft="17dp"
+                android:background="@drawable/user_online_icon"
+                android:contentDescription="@null"
+                android:visibility="gone" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/notificationBalloon"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="5dp"
+        android:visibility="gone" >
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:contentDescription="@null"
+            android:scaleType="fitXY"
+            android:src="@drawable/comment_number_ballon" />
+
+        <TextView
+            android:id="@+id/numberOfNotifications"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:text="8"
+            android:textColor="@android:color/white"
+            android:textSize="20sp" />
+    </RelativeLayout>
+
+</RelativeLayout>

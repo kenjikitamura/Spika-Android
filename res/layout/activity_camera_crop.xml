@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/relativeLayout_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/background_repeat" >
+
+        <com.cloverstudio.spikademo.view.CroppedImageView
+            android:id="@+id/ivCameraCropPhoto"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:scaleType="matrix" >
+        </com.cloverstudio.spikademo.view.CroppedImageView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:background="#00000000"
+            android:orientation="vertical" >
+
+            <View
+                android:id="@+id/topView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#00000000" />
+
+            <LinearLayout
+                android:id="@+id/llCropFrame"
+                android:layout_width="match_parent"
+                android:layout_height="fill_parent"
+                android:layout_gravity="center_vertical|center_horizontal"
+                android:background="@drawable/crop_mask"
+                android:gravity="center_vertical|center_horizontal"
+                android:orientation="horizontal" >
+            </LinearLayout>
+
+            <View
+                android:id="@+id/bottomView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#00000000" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <!-- HEADER -->
+
+    <RelativeLayout
+        android:id="@+id/llHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true" >
+
+        <include layout="@layout/header_crop_image" />
+    </RelativeLayout>
+
+    <!-- FOOTER -->
+
+    <LinearLayout
+        android:id="@+id/llFooter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical" >
+
+        <include layout="@layout/camera_crop_photo_footer_cam" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/ivShadow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/header"
+        android:contentDescription="@null"
+        android:background="@drawable/top_shadow" />
+
+</RelativeLayout>

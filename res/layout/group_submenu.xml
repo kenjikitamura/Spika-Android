@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:background="@android:color/black"
+    android:layout_gravity="right|center_vertical"
+    android:visibility="visible"
+    android:clickable="true" >
+
+    <RelativeLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/menu_header" >
+
+        <com.cloverstudio.spikademo.view.MyriadProTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/GROUP"
+            android:textColor="@android:color/white"
+            android:textSize="20sp" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/llGroupsSubMenuButtons"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/header"
+        android:background="@color/sidemenu_background"
+        android:orientation="vertical"
+        android:paddingTop="20dp" >
+
+        <RelativeLayout
+            android:id="@+id/rlFavoriteGroups"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clipToPadding="false"
+            android:paddingBottom="13dp"
+            android:paddingLeft="20dp"
+            android:paddingTop="20dp"
+            android:background="@drawable/submenu_button_selector" >
+
+            <ImageView
+                android:id="@+id/ivFavoriteGroups"
+                android:layout_width="35dp"
+                android:layout_height="17dp"
+                android:adjustViewBounds="true"
+                android:background="@null"
+                android:contentDescription="@null"
+                android:scaleType="fitCenter"
+                android:src="@drawable/groups_icon_submenu"
+                android:clipToPadding="false" />
+
+            <com.cloverstudio.spikademo.view.MyriadProTextView
+                android:id="@+id/tvFavoriteGroups"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_marginLeft="30dp"
+                android:layout_toRightOf="@+id/ivFavoriteGroups"
+                android:gravity="bottom"
+                android:text="@string/my_groups"
+                android:textColor="@color/side_bar_light_gray"
+                android:textSize="18sp"
+                android:clipToPadding="false"
+                android:layout_alignBaseline="@+id/ivFavoriteGroups" />
+        </RelativeLayout>
+        
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/sidemenu_divider" />
+
+        <RelativeLayout
+            android:id="@+id/rlCategories"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clipToPadding="false"
+            android:paddingBottom="13dp"
+            android:paddingLeft="20dp"
+            android:paddingTop="20dp"
+            android:background="@drawable/submenu_button_selector" >
+
+            <ImageView
+                android:id="@+id/ivCategories"
+                android:layout_width="35dp"
+                android:layout_height="17dp"
+                android:adjustViewBounds="true"
+                android:background="@null"
+                android:contentDescription="@null"
+                android:scaleType="fitCenter"
+                android:src="@drawable/categories_icon_submenu"
+                android:clipToPadding="false" />
+
+            <com.cloverstudio.spikademo.view.MyriadProTextView
+                android:id="@+id/tvCategories"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_marginLeft="30dp"
+                android:layout_toRightOf="@+id/ivCategories"
+                android:clipToPadding="false"
+                android:gravity="bottom"
+                android:text="@string/categories"
+                android:textColor="@color/side_bar_light_gray"
+                android:textSize="18sp"
+                android:layout_alignBaseline="@+id/ivCategories" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/sidemenu_divider" />
+
+        <RelativeLayout
+            android:id="@+id/rlSearch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clipToPadding="false"
+            android:paddingBottom="13dp"
+            android:paddingLeft="20dp"
+            android:paddingTop="20dp"
+            android:background="@drawable/submenu_button_selector" >
+
+            <ImageView
+                android:id="@+id/ivSearch"
+                android:layout_width="35dp"
+                android:layout_height="17dp"
+                android:adjustViewBounds="true"
+                android:background="@null"
+                android:contentDescription="@null"
+                android:scaleType="fitCenter"
+                android:src="@drawable/search_icon_submenu"
+                android:clipToPadding="false" />
+
+            <com.cloverstudio.spikademo.view.MyriadProTextView
+                android:id="@+id/tvSearch"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_marginLeft="30dp"
+                android:layout_toRightOf="@+id/ivSearch"
+                android:clipToPadding="false"
+                android:gravity="bottom"
+                android:text="@string/search"
+                android:textColor="@color/side_bar_light_gray"
+                android:textSize="18sp"
+                android:layout_alignBaseline="@+id/ivSearch" />
+        </RelativeLayout>
+        
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/sidemenu_divider" />
+        
+         <RelativeLayout
+            android:id="@+id/rlCreate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clipToPadding="false"
+            android:paddingBottom="13dp"
+            android:paddingLeft="20dp"
+            android:paddingTop="20dp"
+            android:background="@drawable/submenu_button_selector" >
+
+            <ImageView
+                android:id="@+id/ivCreate"
+                android:layout_width="35dp"
+                android:layout_height="17dp"
+                android:adjustViewBounds="true"
+                android:background="@null"
+                android:contentDescription="@null"
+                android:scaleType="fitCenter"
+                android:src="@drawable/create_group_icon_submenu"
+                android:clipToPadding="false" />
+
+            <com.cloverstudio.spikademo.view.MyriadProTextView
+                android:id="@+id/tvCreate"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_marginLeft="30dp"
+                android:layout_toRightOf="@+id/ivCreate"
+                android:clipToPadding="false"
+                android:gravity="bottom"
+                android:text="@string/add_group"
+                android:textColor="@color/side_bar_light_gray"
+                android:textSize="18sp"
+                android:layout_alignBaseline="@+id/ivCreate" />
+        </RelativeLayout>
+      
+    </LinearLayout>
+
+</RelativeLayout>

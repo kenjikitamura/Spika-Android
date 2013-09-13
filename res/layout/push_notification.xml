@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rlNotificationBody"
+    android:layout_width="match_parent"
+    android:layout_height="62dp"
+    android:background="@color/push_notification_background"
+    android:clickable="true"
+    android:padding="2dp" >
+
+    <RelativeLayout
+        android:id="@+id/rlImage"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="6dp"
+        android:gravity="center" >
+
+        <ImageView
+            android:id="@+id/ivUserImage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:background="@color/loading_background"
+            android:contentDescription="@null"
+            android:scaleType="fitXY" />
+
+        <ProgressBar
+            android:id="@+id/pbLoadingForImage"
+            style="@style/CustomProgressBar"
+            android:layout_width="20px"
+            android:layout_height="20px"
+            android:layout_centerInParent="true"
+            android:visibility="visible" />
+    </RelativeLayout>
+
+    <com.cloverstudio.spikademo.view.MyriadProTextView
+        android:id="@+id/tvUserName"
+        style="@style/TransparentDialogTheme"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/rlImage"
+        android:layout_marginLeft="6dp"
+        android:layout_toLeftOf="@+id/btnClose"
+        android:layout_toRightOf="@+id/rlImage"
+        android:gravity="left|bottom"
+        android:singleLine="true"
+        android:text="User name"
+        android:textColor="@android:color/white"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+    <com.cloverstudio.spikademo.view.MyriadProTextView
+        android:id="@+id/tvNotification"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvUserName"
+        android:layout_marginLeft="6dp"
+        android:layout_toLeftOf="@+id/btnClose"
+        android:layout_toRightOf="@+id/rlImage"
+        android:gravity="left|bottom"
+        android:singleLine="true"
+        android:text="Notification"
+        android:textColor="@android:color/white"
+        android:textSize="14sp" />
+
+    <ImageButton
+        android:id="@+id/btnClose"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:background="@android:drawable/list_selector_background"
+        android:contentDescription="@null"
+        android:padding="10dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/close_icon"
+        android:clickable="true" />
+
+</RelativeLayout>

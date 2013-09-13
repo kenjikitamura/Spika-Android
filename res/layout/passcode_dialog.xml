@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/main_background" >
+
+    <com.cloverstudio.spikademo.view.MyriadProTextView
+        android:id="@+id/tvPasscode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/passcodeInputContainer"
+        android:layout_alignRight="@+id/passcodeInputContainer"
+        android:layout_marginTop="13dp"
+        android:text="@string/please_enter_passcode"
+        android:textColor="@color/settings_text"
+        android:textSize="16sp" />
+
+    <FrameLayout
+        android:id="@+id/passcodeInputContainer"
+        android:layout_width="276dp"
+        android:layout_height="45dp"
+        android:layout_below="@+id/tvPasscode"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="4dp" >
+        
+        <include layout="@layout/passcode_input"/>
+    </FrameLayout>
+
+    <TableLayout
+        android:id="@+id/tlPasscodeKeyboard"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:clickable="true"
+        android:minHeight="264dp"
+        android:minWidth="273dp"
+        android:orientation="vertical"
+        android:weightSum="3" >
+
+        <TableRow
+            android:layout_width="273dp"
+            android:layout_height="87dp"
+            android:orientation="horizontal"
+            android:weightSum="3" >
+
+            <Button
+                android:id="@+id/btn1"
+                android:layout_width="90dp"
+                android:layout_height="70dp"
+                android:layout_margin="1dp"
+                android:layout_weight="1"
+                android:background="@drawable/white_selector"
+                android:gravity="center"
+                android:text="1"
+                android:textColor="#919191"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/btn2"
+                android:layout_width="90dp"
+                android:layout_height="70dp"
+                android:layout_margin="1dp"
+                android:layout_weight="1"
+                android:background="@drawable/white_selector"
+                android:gravity="center"
+                android:text="2"
+                android:textColor="#919191"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/btn3"
+                android:layout_width="90dp"
+                android:layout_height="70dp"
+                android:layout_margin="1dp"
+                android:layout_weight="1"
+                android:background="@drawable/white_selector"
+                android:gravity="center"
+                android:text="3"
+                android:textColor="#919191"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="273dp"
+            android:layout_height="87dp"
+            android:orientation="horizontal"
+            android:weightSum="3" >
+
+            <Button
+                android:id="@+id/btn4"
+                android:layout_width="90dp"
+                android:layout_height="70dp"
+                android:layout_margin="1dp"
+                android:layout_weight="1"
+                android:background="@drawable/white_selector"
+                android:gravity="center"
+                android:text="4"
+                android:textColor="#919191"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/btn5"
+                android:layout_width="90dp"
+                android:layout_height="70dp"
+                android:layout_margin="1dp"
+                android:layout_weight="1"
+                android:background="@drawable/white_selector"
+                android:gravity="center"
+                android:text="5"
+                android:textColor="#919191"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/btn6"
+                android:layout_width="90dp"
+                android:layout_height="70dp"
+                android:layout_margin="1dp"
+                android:layout_weight="1"
+                android:background="@drawable/white_selector"
+                android:gravity="center"
+                android:text="6"
+                android:textColor="#919191"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="273dp"
+            android:layout_height="87dp"
+            android:orientation="horizontal"
+            android:weightSum="3" >
+
+            <Button
+                android:id="@+id/btn7"
+                android:layout_width="90dp"
+                android:layout_height="70dp"
+                android:layout_margin="1dp"
+                android:layout_weight="1"
+                android:background="@drawable/white_selector"
+                android:gravity="center"
+                android:text="7"
+                android:textColor="#919191"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/btn8"
+                android:layout_width="90dp"
+                android:layout_height="70dp"
+                android:layout_margin="1dp"
+                android:layout_weight="1"
+                android:background="@drawable/white_selector"
+                android:gravity="center"
+                android:text="8"
+                android:textColor="#919191"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/btn9"
+                android:layout_width="90dp"
+                android:layout_height="70dp"
+                android:layout_margin="1dp"
+                android:layout_weight="1"
+                android:background="@drawable/white_selector"
+                android:gravity="center"
+                android:text="9"
+                android:textColor="#919191"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="273dp"
+            android:layout_height="87dp"
+            android:gravity="center"
+            android:orientation="horizontal" >
+
+            <Button
+                android:id="@+id/btn0"
+                android:layout_width="90dp"
+                android:layout_height="70dp"
+                android:layout_margin="1dp"
+                android:background="@drawable/white_selector"
+                android:gravity="center"
+                android:text="0"
+                android:textColor="#919191"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+        </TableRow>
+    </TableLayout>
+
+    <Button
+        android:id="@+id/btnPasscodeOk"
+        android:layout_width="155dp"
+        android:layout_height="35dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="40dp"
+        android:background="@drawable/rounded_rect_alert_selector"
+        android:gravity="center"
+        android:text="@string/OK"
+        android:textColor="@android:color/white"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+</RelativeLayout>

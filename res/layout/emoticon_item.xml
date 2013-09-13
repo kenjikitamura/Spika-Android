@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="2" >
+
+    <ImageButton
+        android:id="@+id/btnEmoticonA"
+        android:layout_width="80dip"
+        android:layout_height="80dip"
+        android:layout_weight="1"
+        android:adjustViewBounds="true"
+        android:background="@android:drawable/list_selector_background"
+        android:contentDescription="@null"
+        android:scaleType="fitCenter"
+        android:src="@drawable/image_stub" />
+
+    <ImageButton
+        android:id="@+id/btnEmoticonB"
+        android:layout_width="80dip"
+        android:layout_height="80dip"
+        android:layout_weight="1"
+        android:adjustViewBounds="true"
+        android:background="@android:drawable/list_selector_background"
+        android:contentDescription="@null"
+        android:scaleType="fitCenter"
+        android:src="@drawable/image_stub" />
+
+</LinearLayout>

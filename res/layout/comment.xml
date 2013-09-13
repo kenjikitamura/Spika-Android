@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/transparent" >
+
+    <RelativeLayout
+        android:id="@+id/rlCommentToMe"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:padding="10dp" >
+
+        <ImageButton
+            android:id="@+id/btnAvatarToMe"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_gravity="left"
+            android:background="@null"
+            android:scaleType="fitCenter"
+            android:contentDescription="@null"
+            android:src="@drawable/image_stub"
+            android:visibility="visible" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_toRightOf="@+id/btnAvatarToMe"
+            android:background="@drawable/wall_msg_you"
+            android:padding="5dp"
+            android:gravity="right" >
+
+            <com.cloverstudio.spikademo.view.MyriadProTextView
+                android:id="@+id/tvCommentToMe"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:text="TextView"
+                android:textSize="20sp" />
+
+            <com.cloverstudio.spikademo.view.MyriadProTextView
+                android:id="@+id/tvSubTextToMe"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/tvCommentToMe"
+                android:layout_below="@+id/tvCommentToMe"
+                android:text="TextView"
+                android:textColor="@color/hookup_positive"
+                android:textSize="14sp" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rlCommentFromMe"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:padding="10dp" >
+
+        <ImageButton
+            android:id="@+id/btnAvatarMe"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:background="@null"
+            android:scaleType="fitCenter"
+            android:contentDescription="@null"
+            android:src="@drawable/image_stub"
+            android:visibility="visible" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="5dp"
+            android:layout_toLeftOf="@+id/btnAvatarMe"
+            android:background="@drawable/wall_msg_me"
+            android:padding="5dp"
+            android:gravity="left" >
+
+            <com.cloverstudio.spikademo.view.MyriadProTextView
+                android:id="@+id/tvCommentFromMe"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:text="TextView"
+                android:textSize="20sp" />
+
+            <com.cloverstudio.spikademo.view.MyriadProTextView
+                android:id="@+id/tvSubTextFromMe"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignRight="@+id/tvCommentFromMe"
+                android:layout_below="@+id/tvCommentFromMe"
+                android:text="TextView"
+                android:textColor="@color/hookup_positive"
+                android:textSize="14sp" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+</RelativeLayout>

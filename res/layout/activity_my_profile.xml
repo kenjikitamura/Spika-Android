@@ -1,0 +1,376 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ProfileActivity" >
+
+    <include layout="@layout/activity_sidebar" />
+
+    <RelativeLayout
+        android:id="@+id/rlBody"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/main_background"
+        android:clickable="true" >
+
+        <ScrollView
+            android:id="@+id/svProfile"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/header"
+            android:layout_centerHorizontal="true"
+            android:fadingEdge="none"
+            android:overScrollMode="never" >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:focusableInTouchMode="true"
+                android:paddingBottom="30dp" >
+
+                <RelativeLayout
+                    android:id="@+id/rlPhotoHolder"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="8dp"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true" >
+
+                    <com.cloverstudio.spikademo.view.AspectRatioImageView
+                        android:id="@+id/ivProfileImage"
+                        android:layout_width="match_parent"
+                        android:layout_height="500px"
+                        android:layout_alignParentTop="true"
+                        android:background="@color/loading_background"
+                        android:contentDescription="@null" />
+
+                    <ProgressBar
+                        android:id="@+id/pbLoadingForImage"
+                        style="@style/CustomProgressBar"
+                        android:layout_width="50px"
+                        android:layout_height="50px"
+                        android:layout_centerInParent="true"
+                        android:visibility="visible" />
+                </RelativeLayout>
+                
+                <RelativeLayout
+                    android:id="@+id/rlUserControls"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/rlPhotoHolder"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="8dp" >
+
+                    <RelativeLayout
+                        android:id="@+id/rlUserName"
+                        android:layout_width="match_parent"
+                        android:layout_height="47dp"
+                        android:background="@android:color/white" >
+
+                        <com.cloverstudio.spikademo.view.MyriadProTextView
+                            android:id="@+id/tvUserName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="15dp"
+                            android:ellipsize="end"
+                            android:singleLine="true"
+                            android:text="@string/USERNAME"
+                            android:textColor="@android:color/black"
+                            android:textSize="16sp" />
+
+                        <EditText
+                            android:id="@+id/etUserName"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_toRightOf="@+id/tvUserName"
+                            android:background="@android:color/white"
+                            android:ellipsize="end"
+                            android:gravity="center_vertical|left"
+                            android:hint="@string/username"
+                            android:inputType="text|textNoSuggestions"
+                            android:padding="5dp"
+                            android:singleLine="true"
+                            android:textColor="@color/hookup_positive"
+                            android:textSize="16sp" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/rlEmail"
+                        android:layout_width="match_parent"
+                        android:layout_height="47dp"
+                        android:layout_below="@+id/rlUserName"
+                        android:layout_marginTop="5dp"
+                        android:background="@android:color/white" >
+
+                        <com.cloverstudio.spikademo.view.MyriadProTextView
+                            android:id="@+id/tvEmail"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="10dp"
+                            android:text="@string/EMAIL"
+                            android:textColor="@android:color/black"
+                            android:textSize="16sp" />
+
+                        <EditText
+                            android:id="@+id/etUserEmail"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_toRightOf="@+id/tvEmail"
+                            android:background="@android:color/white"
+                            android:gravity="center_vertical|left"
+                            android:inputType="textEmailAddress"
+                            android:padding="5dp"
+                            android:singleLine="true"
+                            android:textColor="@color/hookup_positive"
+                            android:textSize="16sp" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/rlPassword"
+                        android:layout_width="match_parent"
+                        android:layout_height="47dp"
+                        android:layout_below="@+id/rlUserName"
+                        android:layout_marginTop="5dp"
+                        android:background="@android:color/white"
+                        android:visibility="gone" >
+
+                        <com.cloverstudio.spikademo.view.MyriadProTextView
+                            android:id="@+id/tvPassword"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="10dp"
+                            android:text="@string/PASSWORD"
+                            android:textColor="@android:color/black"
+                            android:textSize="16sp" />
+
+                        <EditText
+                            android:id="@+id/etUserPassword"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_toRightOf="@+id/tvPassword"
+                            android:background="@android:color/white"
+                            android:gravity="center_vertical|left"
+                            android:hint="@string/password"
+                            android:inputType="textPassword"
+                            android:padding="5dp"
+                            android:singleLine="true"
+                            android:textColor="@color/hookup_positive"
+                            android:textSize="16sp" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/rlAbout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/rlEmail"
+                        android:layout_marginTop="5dp"
+                        android:background="@android:color/white"
+                        android:minHeight="47dp" >
+
+                        <com.cloverstudio.spikademo.view.MyriadProTextView
+                            android:id="@+id/tvAbout"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="10dp"
+                            android:text="@string/ABOUT"
+                            android:textColor="@android:color/black"
+                            android:textSize="16sp" />
+
+                        <EditText
+                            android:id="@+id/etUserAbout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_toRightOf="@+id/tvAbout"
+                            android:autoLink="web"
+                            android:background="@android:color/white"
+                            android:gravity="center_vertical|left"
+                            android:hint="@string/tap_to_add_description"
+                            android:inputType="textMultiLine|textNoSuggestions"
+                            android:linksClickable="true"
+                            android:padding="5dp"
+                            android:singleLine="false"
+                            android:textColor="@color/hookup_positive"
+                            android:textSize="16sp" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/rlBirthday"
+                        android:layout_width="match_parent"
+                        android:layout_height="47dp"
+                        android:layout_below="@+id/rlAbout"
+                        android:layout_marginTop="5dp"
+                        android:background="@android:color/white" >
+
+                        <com.cloverstudio.spikademo.view.MyriadProTextView
+                            android:id="@+id/tvBirthday"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="10dp"
+                            android:text="@string/BIRTHDAY"
+                            android:textColor="@android:color/black"
+                            android:textSize="16sp" />
+
+                        <EditText
+                            android:id="@+id/etUserBirthday"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_toRightOf="@+id/tvBirthday"
+                            android:background="@android:color/white"
+                            android:enabled="true"
+                            android:focusable="false"
+                            android:focusableInTouchMode="false"
+                            android:gravity="center_vertical|left"
+                            android:hint="@string/tap_to_add_birthday"
+                            android:inputType="none"
+                            android:padding="5dp"
+                            android:singleLine="true"
+                            android:textColor="@color/hookup_positive"
+                            android:textSize="16sp" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/rlGender"
+                        android:layout_width="match_parent"
+                        android:layout_height="47dp"
+                        android:layout_below="@+id/rlBirthday"
+                        android:layout_marginTop="5dp"
+                        android:background="@android:color/white" >
+
+                        <com.cloverstudio.spikademo.view.MyriadProTextView
+                            android:id="@+id/tvGender"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="10dp"
+                            android:text="@string/GENDER"
+                            android:textColor="@android:color/black"
+                            android:textSize="16sp" />
+
+                        <Spinner
+                            android:id="@+id/spinnerGender"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="5dp"
+                            android:layout_toRightOf="@+id/tvGender"
+                            android:background="@android:color/white"
+                            android:entries="@array/gender"
+                            android:spinnerMode="dropdown"
+                            android:textColor="@color/hookup_positive"
+                            android:textSize="12sp" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/rlOnlineStatus"
+                        android:layout_width="match_parent"
+                        android:layout_height="47dp"
+                        android:layout_below="@+id/rlGender"
+                        android:layout_marginTop="5dp"
+                        android:background="@android:color/white" >
+
+                        <com.cloverstudio.spikademo.view.MyriadProTextView
+                            android:id="@+id/tvOnlineStatus"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="10dp"
+                            android:text="@string/ONLINE_STATUS"
+                            android:textColor="@android:color/black"
+                            android:textSize="16sp" />
+
+                        <Spinner
+                            android:id="@+id/spinnerStatus"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_toRightOf="@+id/tvOnlineStatus"
+                            android:background="@android:color/white"
+                            android:entries="@array/online_status"
+                            android:spinnerMode="dropdown"
+                            android:textColor="@color/hookup_positive"
+                            android:textSize="12sp" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/rlEditControls"
+                        android:layout_width="175dp"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/rlOnlineStatus"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="30dp"
+                        android:visibility="gone" >
+
+                        <Button
+                            android:id="@+id/btnSave"
+                            android:layout_width="match_parent"
+                            android:layout_height="35dp"
+                            android:background="@drawable/rounded_rect_positive_selector"
+                            android:text="@string/SAVE"
+                            android:textColor="@android:color/white" />
+
+                    </RelativeLayout>
+                </RelativeLayout>
+            </RelativeLayout>
+        </ScrollView>
+
+        <ImageView
+            android:id="@+id/ivShadow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/header"
+            android:background="@drawable/top_shadow"
+            android:contentDescription="@null" />
+
+        <RelativeLayout
+            android:id="@+id/rlNoInternetNotification"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/header"
+            android:visibility="gone" >
+
+            <include layout="@layout/no_internet_notification" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rlPushNotification"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/header"
+            android:visibility="gone" >
+
+            <include layout="@layout/push_notification" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/header"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true" >
+
+            <include layout="@layout/header_my_profile" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+</RelativeLayout>

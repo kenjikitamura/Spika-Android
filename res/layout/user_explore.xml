@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/transparent"
+    android:focusable="false"
+    android:focusableInTouchMode="true"
+    android:gravity="center_vertical"
+    android:orientation="vertical"
+    android:paddingTop="8dp"
+    android:paddingLeft="5dp"
+    android:paddingRight="5dp" >
+
+    <RelativeLayout
+        android:id="@+id/rlFirstRow"
+        android:layout_width="match_parent"
+        android:layout_height="30dp" >
+
+        <LinearLayout
+            android:id="@+id/llGenderButtons"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:layout_toLeftOf="@+id/btnUserExplore"
+            android:orientation="horizontal"
+            android:weightSum="3" >
+
+            <com.cloverstudio.spikademo.view.GenderButton
+                android:id="@+id/btnMale"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/gender_button_left_off"
+                android:gravity="center"
+                android:text="@string/male"
+                android:textColor="@android:color/white" />
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent" />
+
+            <com.cloverstudio.spikademo.view.GenderButton
+                android:id="@+id/btnFemale"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/gender_button_middle_off"
+                android:gravity="center"
+                android:text="@string/female"
+                android:textColor="@android:color/white" />
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent" />
+
+            <com.cloverstudio.spikademo.view.GenderButton
+                android:id="@+id/btnAll"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/gender_button_right_off"
+                android:gravity="center"
+                android:text="@string/all"
+                android:textColor="@android:color/white" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnUserExplore"
+            android:layout_width="110dp"
+            android:layout_height="30dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/rounded_rect_positive_selector"
+            android:gravity="center"
+            android:text="@string/EXPLORE"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rlSeekBar"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginTop="8dp"
+        android:gravity="center_vertical"
+        android:background="@drawable/rounded_rect_gray" >
+        
+        <TextView
+            android:id="@+id/tvFromAge"
+            android:layout_width="@dimen/seekBar_margin"
+            android:layout_height="30dp"
+            android:layout_alignParentLeft="true"
+            android:text="0"
+            android:gravity="center"
+            android:textColor="@android:color/white"/>
+        
+        <View
+            android:id="@+id/viewLeft"
+            android:layout_width="1px"
+            android:layout_height="match_parent"
+            android:background="@android:color/white"
+            android:layout_toRightOf="@+id/tvFromAge"/>
+        
+        <View
+            android:id="@+id/seekBar"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@color/hookup_positive"
+            android:layout_toLeftOf="@+id/viewRight"
+            android:layout_toRightOf="@+id/viewLeft"/>
+        
+        <com.cloverstudio.spikademo.view.MyriadProTextView 
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@null"
+            android:layout_toLeftOf="@+id/viewRight"
+            android:layout_toRightOf="@+id/viewLeft"
+            android:text="@string/pick_age_hint"
+            android:gravity="center"
+            android:textColor="@android:color/white"/>
+        
+        <View
+            android:id="@+id/viewRight"
+            android:layout_width="1px"
+            android:layout_height="match_parent"
+            android:background="@android:color/white"
+            android:layout_toLeftOf="@+id/tvToAge"/>
+        
+        <TextView
+            android:id="@+id/tvToAge"
+            android:layout_width="@dimen/seekBar_margin"
+            android:layout_height="30dp"
+            android:layout_alignParentRight="true"
+            android:text="100"
+            android:gravity="center"
+            android:textColor="@android:color/white"/>
+    </RelativeLayout>
+    
+    <CheckBox android:id="@+id/checkboxOnlineUsers"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:text="Online users"
+        android:textSize="15sp"
+        android:checked="false"
+        android:onClick="onCheckboxClicked"/>
+
+</LinearLayout>

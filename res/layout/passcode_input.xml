@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="276dp"
+    android:layout_height="45dp"
+    android:gravity="center_vertical" >
+
+    <LinearLayout
+        android:id="@+id/llPasscodeInput"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingLeft="27dp"
+        android:weightSum="4" >
+
+        <ImageView
+            android:id="@+id/passcode1"
+            android:layout_width="37dp"
+            android:layout_height="37dp"
+            android:layout_weight="1"
+            android:contentDescription="@null"
+            android:src="@drawable/circle_shape_neutral" />
+
+        <ImageView
+            android:id="@+id/passcode2"
+            android:layout_width="37dp"
+            android:layout_height="37dp"
+            android:layout_weight="1"
+            android:contentDescription="@null"
+            android:src="@drawable/circle_shape_neutral" />
+
+        <ImageView
+            android:id="@+id/passcode3"
+            android:layout_width="37dp"
+            android:layout_height="37dp"
+            android:layout_weight="1"
+            android:contentDescription="@null"
+            android:src="@drawable/circle_shape_neutral" />
+
+        <ImageView
+            android:id="@+id/passcode4"
+            android:layout_width="37dp"
+            android:layout_height="37dp"
+            android:layout_weight="1"
+            android:contentDescription="@null"
+            android:src="@drawable/circle_shape_neutral" />
+
+        <Button
+            android:id="@+id/btnDelete"
+            android:layout_width="24dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="right"
+            android:background="@drawable/delete_arrow" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/rlPasscodeResult"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/hookup_alert"
+        android:gravity="center_vertical"
+        android:visibility="gone" >
+
+        <com.cloverstudio.spikademo.view.MyriadProBoldTextView
+            android:id="@+id/tvPasscodeResult"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/FAIL"
+            android:textColor="@android:color/white"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+</RelativeLayout>

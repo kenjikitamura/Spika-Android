@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="8dp" >
+
+    <RelativeLayout
+        android:id="@+id/rlCommentToMe"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="30dp"
+        android:visibility="visible" >
+
+        <ImageButton
+            android:id="@+id/btnAvatarToMe"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_gravity="left"
+            android:layout_marginLeft="5dp"
+            android:background="@null"
+            android:scaleType="fitCenter"
+            android:contentDescription="@null"
+            android:src="@drawable/image_stub"
+            android:visibility="visible" />
+
+        <LinearLayout
+            android:id="@+id/llCommentToMe"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_toRightOf="@+id/btnAvatarToMe"
+            android:orientation="vertical" >
+
+            <RelativeLayout
+                android:id="@+id/rlForBackgroundToMe"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/wall_msg_you"
+                android:paddingBottom="5dp"
+                android:paddingLeft="15dp"
+                android:paddingRight="5dp"
+                android:paddingTop="5dp" >
+
+                <ProgressBar
+                    android:id="@+id/pbPhotoToMe"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:visibility="gone" />
+                
+                <com.cloverstudio.spikademo.view.MyriadProTextView
+                    android:id="@+id/tvCommentToMe"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:layout_centerVertical="true"
+                    android:text="TextView"
+                    android:textColor="@color/dark_gray_text"
+                    android:textSize="15sp"
+                    android:visibility="visible" />
+            </RelativeLayout>
+
+            <com.cloverstudio.spikademo.view.MyriadProTextView
+                android:id="@+id/tvSubTextToMe"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:gravity="left"
+                android:paddingLeft="15dp"
+                android:text="TextView"
+                android:textColor="@color/hookup_positive"
+                android:textSize="12sp"
+                android:visibility="visible"
+                android:layout_marginTop="2dp" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rlCommentFromMe"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:visibility="visible" >
+		        
+        <LinearLayout
+            android:id="@+id/llCommentFromMe"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="5dp"
+            android:layout_toLeftOf="@+id/btnAvatarMe"
+            android:orientation="vertical" >
+
+            <RelativeLayout
+                android:id="@+id/rlForBackgroundFromMe"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:background="@drawable/wall_msg_me"
+                android:paddingBottom="5dp"
+                android:paddingLeft="5dp"
+                android:paddingRight="15dp"
+                android:paddingTop="5dp" >
+				
+			    <ProgressBar
+                    android:id="@+id/pbPhotoFromMe"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:visibility="gone" />              
+                                
+                <com.cloverstudio.spikademo.view.MyriadProTextView
+                    android:id="@+id/tvCommentFromMe"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:gravity="right"
+                    android:text="TextView"
+                    android:layout_centerVertical="true"
+                    android:textColor="@color/dark_gray_text"
+                    android:textSize="15sp"
+                    android:visibility="visible" />
+
+            </RelativeLayout>
+            
+            <com.cloverstudio.spikademo.view.MyriadProTextView
+                android:id="@+id/tvSubTextFromMe"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:paddingRight="15dp"
+                android:text="TextView"
+                android:textColor="@color/hookup_positive"
+                android:textSize="12sp"
+                android:visibility="visible"
+                android:layout_marginTop="2dp" />
+        </LinearLayout>
+
+        <ImageButton
+            android:id="@+id/btnAvatarMe"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="5dp"
+            android:background="@null"
+            android:scaleType="fitCenter"
+            android:contentDescription="@null"
+            android:src="@drawable/image_stub"
+            android:visibility="visible" />
+    </RelativeLayout>
+
+</RelativeLayout>

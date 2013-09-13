@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <selector xmlns:android="http://schemas.android.com/apk/res/android">
+     <item android:state_pressed="true"
+           android:drawable="@drawable/location_more_icon_active" /> <!-- pressed -->
+     <item android:state_focused="true"
+           android:drawable="@drawable/location_more_icon" /> <!-- focused -->
+     <item android:drawable="@drawable/location_more_icon" /> <!-- default -->
+ </selector>

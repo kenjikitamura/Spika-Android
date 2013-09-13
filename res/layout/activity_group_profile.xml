@@ -1,0 +1,349 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rlBody"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".GroupProfileActivity" >
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/header"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/main_background"
+        android:fadingEdge="none"
+        android:overScrollMode="never" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:descendantFocusability="beforeDescendants"
+            android:focusableInTouchMode="true"
+            android:paddingBottom="15dp" >
+
+            <RelativeLayout
+                android:id="@+id/rlPhotoHolder"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="8dp"
+                android:focusable="true"
+                android:focusableInTouchMode="true" >
+
+                <com.cloverstudio.spikademo.view.AspectRatioImageView
+                    android:id="@+id/ivGroupImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="500px"
+                    android:layout_alignParentTop="true"
+                    android:background="@color/loading_background"
+                    android:contentDescription="@null" />
+
+                <ProgressBar
+                    android:id="@+id/pbLoadingForImage"
+                    style="@style/CustomProgressBar"
+                    android:layout_width="50px"
+                    android:layout_height="50px"
+                    android:layout_centerInParent="true"
+                    android:visibility="visible" />
+            </RelativeLayout>
+            
+            <Button
+                android:id="@+id/btnOpenWall"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_below="@+id/rlPhotoHolder"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/positive_selector"
+                android:drawableRight="@drawable/arrow_white"
+                android:gravity="center"
+                android:paddingRight="10dp"
+                android:text="@string/OPEN_CONVERSATION"
+                android:textColor="@android:color/white"
+                android:textSize="16sp" />
+
+            <RelativeLayout
+                android:id="@+id/rlGroupInfoBody"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/btnOpenWall"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp" >
+
+                <RelativeLayout
+                    android:id="@+id/rlCategory"
+                    android:layout_width="match_parent"
+                    android:layout_height="47dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@android:color/white" >
+
+                    <com.cloverstudio.spikademo.view.MyriadProTextView
+                        android:id="@+id/tvCategory"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="10dp"
+                        android:text="@string/CATEGORY"
+                        android:textColor="@android:color/black"
+                        android:textSize="16sp" />
+
+                    <Spinner
+                        android:id="@+id/spinnerCategory"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="5dp"
+                        android:layout_toRightOf="@+id/tvCategory"
+                        android:background="@android:color/white"
+                        android:spinnerMode="dialog"
+                        android:textColor="@color/hookup_positive"
+                        android:textSize="16sp" />
+                </RelativeLayout>
+
+                
+                <RelativeLayout
+                    android:id="@+id/rlGroupName"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="6dp"
+                    android:layout_below="@+id/rlCategory"
+                    android:background="@android:color/white" >
+
+                    <com.cloverstudio.spikademo.view.MyriadProTextView
+                        android:id="@+id/tvGroupName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="15dp"
+                        android:ellipsize="end"
+                        android:singleLine="true"
+                        android:text="@string/GROUP_NAME"
+                        android:textColor="@android:color/black"
+                        android:textSize="16sp" />
+
+                    <EditText
+                        android:id="@+id/etGroupName"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginTop="6dp"
+                        android:layout_toRightOf="@+id/tvGroupName"
+                        android:background="@android:color/white"
+                        android:ellipsize="end"
+                        android:hint="@string/group_name"
+                        android:inputType="text|textNoSuggestions"
+                        android:padding="5dp"
+                        android:singleLine="true"
+                        android:textColor="@color/hookup_positive"
+                        android:textSize="16sp" />
+                </RelativeLayout>
+                
+                
+                <RelativeLayout
+                        android:id="@+id/rlGroupPassword"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/rlGroupName"
+                        android:layout_marginTop="5dp"
+                        android:background="@android:color/white"
+                        android:minHeight="47dp" >
+
+                        <com.cloverstudio.spikademo.view.MyriadProTextView
+                            android:id="@+id/tvPassword"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="10dp"
+                            android:text="@string/PASSWORD"
+                            android:textColor="@android:color/black"
+                            android:textSize="16sp" />
+
+                        <EditText
+                            android:id="@+id/etGroupPassword"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_toRightOf="@+id/tvPassword"
+                            android:background="@android:color/white"
+                            android:hint="@string/tap_to_add_password"
+                            android:inputType="textPassword"
+                            android:padding="5dp"
+                            android:singleLine="true"
+                            android:textColor="@color/hookup_positive"
+                            android:textSize="16sp" />
+                    </RelativeLayout>
+                    
+                <RelativeLayout
+                    android:id="@+id/rlGroupOwner"
+                    android:layout_width="match_parent"
+                    android:layout_height="47dp"
+                    android:layout_below="@+id/rlGroupPassword"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/white_selector" >
+
+                    <com.cloverstudio.spikademo.view.MyriadProTextView
+                        android:id="@+id/tvOwner"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="10dp"
+                        android:text="@string/GROUP_OWNER"
+                        android:textColor="@android:color/black"
+                        android:textSize="16sp" />
+
+                    <com.cloverstudio.spikademo.view.MyriadProTextView
+                        android:id="@+id/tvGroupOwner"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="5dp"
+                        android:layout_toRightOf="@+id/tvOwner"
+                        android:textColor="@color/hookup_positive"
+                        android:textSize="16sp" />
+
+                    <ImageView
+                        android:id="@+id/ivArrow"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/arrow"
+                        android:contentDescription="@null" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rlGroupDescription"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/rlGroupOwner"
+                    android:layout_marginTop="5dp"
+                    android:background="@android:color/white"
+                    android:minHeight="47dp" >
+
+                    <com.cloverstudio.spikademo.view.MyriadProTextView
+                        android:id="@+id/tvDescription"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="10dp"
+                        android:text="@string/DESCRIPTION"
+                        android:textColor="@android:color/black"
+                        android:textSize="16sp" />
+
+                    <com.cloverstudio.spikademo.view.MyriadProTextView
+                        android:id="@+id/tvGroupDescription"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@+id/tvDescription"
+                        android:autoLink="web"
+                        android:linksClickable="true"
+                        android:padding="5dp"
+                        android:singleLine="false"
+                        android:textColor="@color/hookup_positive"
+                        android:textSize="16sp" />
+
+                    <EditText
+                        android:id="@+id/etGroupDescription"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@+id/tvDescription"
+                        android:autoLink="web"
+                        android:background="@android:color/white"
+                        android:hint="@string/tap_to_add_description"
+                        android:inputType="textMultiLine|textNoSuggestions"
+                        android:linksClickable="true"
+                        android:padding="5dp"
+                        android:singleLine="false"
+                        android:textColor="@color/hookup_positive"
+                        android:textSize="16sp"
+                        android:visibility="gone" />
+                </RelativeLayout>
+                
+
+                <RelativeLayout
+                    android:id="@+id/rlControlButtons"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_below="@+id/rlGroupDescription"
+                    android:layout_centerHorizontal="true"
+                    android:visibility="gone" >
+
+                    <Button
+                        android:id="@+id/btnSaveGroup"
+                        android:layout_width="213dp"
+                        android:layout_height="37dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="30dp"
+                        android:background="@drawable/rounded_rect_positive_selector"
+                        android:gravity="center"
+                        android:text="@string/SAVE"
+                        android:textColor="@android:color/white"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <Button
+                        android:id="@+id/btnDeleteGroup"
+                        android:layout_width="213dp"
+                        android:layout_height="37dp"
+                        android:layout_below="@+id/btnSaveGroup"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="15dp"
+                        android:background="@drawable/rounded_rect_alert_selector"
+                        android:gravity="center"
+                        android:text="@string/DELETE"
+                        android:textColor="@android:color/white"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+                </RelativeLayout>
+            </RelativeLayout>
+        </RelativeLayout>
+    </ScrollView>
+
+    <ImageView
+        android:id="@+id/ivShadow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/header"
+        android:background="@drawable/top_shadow"
+        android:contentDescription="@null" />
+
+    <RelativeLayout
+        android:id="@+id/rlNoInternetNotification"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/header"
+        android:visibility="gone" >
+
+        <include layout="@layout/no_internet_notification" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rlPushNotification"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/header"
+        android:visibility="gone" >
+
+        <include layout="@layout/push_notification" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true" >
+
+        <include layout="@layout/header_group_profile" />
+    </RelativeLayout>
+
+</RelativeLayout>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/relativeLayout_footer"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+     >
+
+    <!--
+         <ImageView
+            android:id="@+id/camera_footer_bg"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:src="@drawable/camera_footer_bg"
+            android:contentDescription="@null" />
+    -->
+    
+    <LinearLayout 
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:weightSum="2">
+        
+       <Button
+        android:id="@+id/btnCameraCancel"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="5dp"
+        android:background="@drawable/alert_selector"
+        android:scaleType="centerInside"
+        android:text="@string/CANCEL"
+        android:padding="10dp"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/btnCameraOk"
+        android:layout_width="0dp"
+      	 android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:layout_marginLeft="5dp"
+        android:background="@drawable/positive_selector"
+        android:scaleType="centerInside"
+        android:text="@string/USE_PHOTO"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"  /> 
+        
+    </LinearLayout>
+
+</RelativeLayout>

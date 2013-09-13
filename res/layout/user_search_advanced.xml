@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/transparent"
+    android:focusable="false"
+    android:focusableInTouchMode="true" >
+
+    <Button
+        android:id="@+id/btnSearchAdvanced"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/search_icon_black"
+        android:enabled="false" />
+
+    <com.cloverstudio.spikademo.view.MyriadProTextView
+        android:id="@+id/searchLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/btnSearchAdvanced"
+        android:layout_alignTop="@+id/btnSearchAdvanced"
+        android:layout_marginLeft="15dp"
+        android:layout_toRightOf="@+id/btnSearchAdvanced"
+        android:gravity="left|center"
+        android:text="YOU CAN STILL ADD XX CONTACT"
+        android:textColor="@color/dark_gray_text"
+        android:textSize="15sp" >
+    </com.cloverstudio.spikademo.view.MyriadProTextView>
+
+    <com.cloverstudio.spikademo.view.MyriadProTextView
+        android:id="@+id/nameLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/etSearchUsersNameAdvanced"
+        android:layout_alignTop="@+id/etSearchUsersNameAdvanced"
+        android:layout_marginLeft="25dp"
+        android:gravity="center_vertical"
+        android:text="@string/name"
+        android:textColor="@color/dark_gray_text"
+        android:textSize="15sp" >
+    </com.cloverstudio.spikademo.view.MyriadProTextView>
+
+    <EditText
+        android:id="@+id/etSearchUsersNameAdvanced"
+        android:layout_width="161dp"
+        android:layout_height="45dp"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/btnSearchAdvanced"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="10dp"
+        android:background="#ffffff"
+        android:hint="@string/name"
+        android:imeOptions="actionSearch"
+        android:inputType="text"
+        android:padding="4dp"
+        android:paddingLeft="10dp"
+        android:singleLine="true"
+        android:textColor="@color/hookup_gray"
+        android:textColorHint="@color/hookup_gray"
+        android:textSize="18sp" >
+    </EditText>
+
+    <com.cloverstudio.spikademo.view.MyriadProTextView
+        android:id="@+id/ageLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="25dp"
+        android:gravity="center_vertical"
+        android:text="@string/age"
+        android:textColor="@color/dark_gray_text"
+        android:textSize="15sp" >
+    </com.cloverstudio.spikademo.view.MyriadProTextView>
+
+    <com.cloverstudio.spikademo.view.MyriadProTextView
+        android:id="@+id/fromLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/ageLabel"
+        android:layout_alignBottom="@+id/etSearchUsersFromAgeAdvanced"
+        android:layout_alignTop="@+id/etSearchUsersFromAgeAdvanced"
+        android:layout_marginRight="13dp"
+        android:layout_toLeftOf="@+id/etSearchUsersFromAgeAdvanced"
+        android:gravity="center_vertical"
+        android:text="@string/from"
+        android:textColor="@color/dim_gray_text"
+        android:textSize="15sp" >
+    </com.cloverstudio.spikademo.view.MyriadProTextView>
+
+    <EditText
+        android:id="@+id/etSearchUsersFromAgeAdvanced"
+        android:layout_width="59dp"
+        android:layout_height="45dp"
+        android:layout_alignLeft="@+id/etSearchUsersNameAdvanced"
+        android:layout_below="@+id/etSearchUsersNameAdvanced"
+        android:layout_marginTop="5dp"
+        android:background="#ffffff"
+        android:hint="@string/age"
+        android:imeOptions="actionSearch"
+        android:inputType="number"
+        android:padding="4dp"
+        android:paddingLeft="10dp"
+        android:singleLine="true"
+        android:textColor="@color/hookup_gray"
+        android:textColorHint="@color/hookup_gray"
+        android:textSize="18sp" >
+    </EditText>
+
+    <com.cloverstudio.spikademo.view.MyriadProTextView
+        android:id="@+id/toLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/ageLabel"
+        android:layout_alignBottom="@+id/etSearchUsersFromAgeAdvanced"
+        android:layout_alignTop="@+id/etSearchUsersFromAgeAdvanced"
+        android:layout_marginRight="13dp"
+        android:gravity="center_vertical"
+        android:text="@string/to"
+        android:textColor="@color/dim_gray_text"
+        android:textSize="15sp" >
+    </com.cloverstudio.spikademo.view.MyriadProTextView>
+
+    <EditText
+        android:id="@+id/etSearchUsersToAgeAdvanced"
+        android:layout_width="59dp"
+        android:layout_height="45dp"
+        android:layout_alignRight="@+id/etSearchUsersNameAdvanced"
+        android:layout_below="@+id/etSearchUsersNameAdvanced"
+        android:layout_marginTop="5dp"
+        android:background="#ffffff"
+        android:hint="@string/age"
+        android:imeOptions="actionSearch"
+        android:inputType="number"
+        android:padding="4dp"
+        android:paddingLeft="10dp"
+        android:singleLine="true"
+        android:textColor="@color/hookup_gray"
+        android:textColorHint="@color/hookup_gray"
+        android:textSize="18sp" >
+    </EditText>
+
+    <RelativeLayout
+        android:id="@+id/layoutForGender"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/etSearchUsersFromAgeAdvanced"
+        android:layout_marginTop="10dp" >
+
+        <com.cloverstudio.spikademo.view.MyriadProTextView
+            android:id="@+id/genderLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="25dp"
+            android:text="@string/gender"
+            android:textColor="@color/dark_gray_text"
+            android:textSize="15sp" >
+        </com.cloverstudio.spikademo.view.MyriadProTextView>
+
+        <RadioGroup
+            android:id="@+id/rgGenderSearchAdvanced"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="25dp"
+            android:gravity="right"
+            android:orientation="horizontal" >
+
+            <RadioButton
+                android:id="@+id/rbMaleSearchAdvanced"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="5dp"
+                android:layout_marginRight="4dp"
+                android:button="@null"
+                android:checked="true"
+                android:drawablePadding="8dp"
+                android:drawableRight="@drawable/radio_button_selector"
+                android:gravity="right|center_vertical"
+                android:paddingLeft="0px"
+                android:paddingRight="0px"
+                android:text="@string/male"
+                android:textColor="@color/dim_gray_text"
+                android:textSize="15sp" />
+
+            <RadioButton
+                android:id="@+id/rbFemaleSearchAdvanced"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="5dp"
+                android:button="@null"
+                android:checked="false"
+                android:drawablePadding="8dp"
+                android:drawableRight="@drawable/radio_button_selector"
+                android:gravity="left|center_vertical"
+                android:paddingLeft="0px"
+                android:paddingRight="0px"
+                android:text="@string/female"
+                android:textColor="@color/dim_gray_text"
+                android:textSize="15sp" />
+
+            <RadioButton
+                android:id="@+id/rbOtherSearchAdvanced"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="5dp"
+                android:button="@null"
+                android:checked="false"
+                android:drawablePadding="6dp"
+                android:drawableRight="@drawable/radio_button_selector"
+                android:gravity="left|center_vertical"
+                android:paddingLeft="0px"
+                android:paddingRight="0px"
+                android:text="@string/other"
+                android:textColor="@color/dim_gray_text"
+                android:textSize="15sp" />
+        </RadioGroup>
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/btnAdvancedSearch"
+        android:layout_width="100dp"
+        android:layout_height="24dp"
+        android:layout_below="@+id/layoutForGender"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/less_rounded_rect_positive_selector"
+        android:gravity="center"
+        android:text="@string/SEARCH"
+        android:textColor="@android:color/white"
+        android:textSize="12sp"
+        android:textStyle="bold" />
+
+    <View
+        android:id="@+id/shadowBottom"
+        android:layout_width="match_parent"
+        android:layout_height="19px"
+        android:layout_below="@+id/btnAdvancedSearch"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/shadow_up" />
+
+</RelativeLayout>

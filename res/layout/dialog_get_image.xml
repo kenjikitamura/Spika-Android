@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="44dp"
+    android:orientation="horizontal"
+    android:weightSum="3" >
+
+    <Button
+        android:id="@+id/btnCamera"
+        android:layout_width="0dip"
+        android:layout_height="match_parent"
+        android:text="@string/CAMERA"
+        android:background="@drawable/positive_selector"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:textColor="@android:color/white"
+        android:textStyle="bold" />
+    
+    <View
+        android:layout_width="1px"
+        android:layout_height="match_parent"
+        android:background="@android:color/white"/>
+    
+    <Button
+        android:id="@+id/btnGallery"
+        android:layout_width="0dip"
+        android:layout_height="match_parent"
+        android:text="@string/GALLERY"
+        android:background="@drawable/positive_selector"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:textColor="@android:color/white"
+        android:textStyle="bold" />
+    
+    <View
+        android:layout_width="1px"
+        android:layout_height="match_parent"
+        android:background="@android:color/white"/>
+    
+    <Button
+        android:id="@+id/btnCancel"
+        android:layout_width="0dip"
+        android:layout_height="match_parent"
+        android:text="@string/CANCEL"
+        android:background="@drawable/positive_selector"
+        android:gravity="center"
+        android:textColor="@android:color/white"
+        android:visibility="gone"
+        android:layout_weight="0" />
+    
+    <View
+        android:layout_width="1px"
+        android:layout_height="match_parent"
+        android:background="@android:color/white"
+        android:visibility="gone"/>
+    
+    <Button
+        android:id="@+id/btnRemovePhoto"
+        android:layout_width="0dip"
+        android:layout_height="match_parent"
+        android:text="@string/REMOVE_PHOTO"
+        android:background="@drawable/positive_selector"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:textColor="@android:color/white"
+        android:textStyle="bold" />
+
+</LinearLayout>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rlPhotoHolder"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_alignParentTop="true"
+    android:layout_centerHorizontal="true"
+    android:background="@android:color/white"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:paddingBottom="10dp" >
+
+    <RelativeLayout
+        android:id="@+id/rlPhotoImage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="6dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:focusable="true"
+        android:focusableInTouchMode="true" >
+
+        <com.cloverstudio.spikademo.view.AspectRatioImageView
+            android:id="@+id/ivPhotoImage"
+            android:layout_width="match_parent"
+            android:layout_height="500px"
+            android:layout_alignParentTop="true"
+            android:background="@color/loading_background"
+            android:contentDescription="@null" />
+
+        <ProgressBar
+            android:id="@+id/pbLoadingForImage"
+            style="@style/CustomProgressBar"
+            android:layout_width="50px"
+            android:layout_height="50px"
+            android:layout_centerInParent="true"
+            android:visibility="visible" />
+    </RelativeLayout>
+
+    <ImageButton
+        android:id="@+id/btnAvatarUser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/rlPhotoImage"
+        android:layout_below="@+id/rlPhotoImage"
+        android:layout_gravity="right"
+        android:layout_marginTop="6dp"
+        android:background="@null"
+        android:contentDescription="@null"
+        android:scaleType="fitCenter"
+        android:src="@drawable/image_stub"
+        android:visibility="visible" />
+
+    <com.cloverstudio.spikademo.view.MyriadProTextView
+        android:id="@+id/tvPostedBy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rlPhotoImage"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="6dp"
+        android:layout_toLeftOf="@+id/btnAvatarUser"
+        android:textColor="@color/side_bar_light_gray"
+        android:textSize="12sp" />
+
+</RelativeLayout>

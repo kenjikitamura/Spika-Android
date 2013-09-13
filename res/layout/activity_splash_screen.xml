@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/relativeLayout_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000" >
+
+    <ImageView
+        android:id="@+id/ivSplashScreen"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="0px"
+        android:scaleType="centerCrop"
+        android:src="@drawable/splash" />
+
+</RelativeLayout>

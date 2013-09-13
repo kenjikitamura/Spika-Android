@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rlTitle"
+    android:layout_width="match_parent"
+    android:layout_height="44dp"
+    android:layout_alignParentTop="true"
+    android:background="@drawable/header_background" >
+    
+    <ImageButton
+        android:id="@+id/btnOpenSideBar"
+        android:layout_width="42dp"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_centerInParent="true"
+        android:background="@null"
+        android:contentDescription="@null"
+        android:scaleType="centerInside"
+        android:src="@drawable/menu_icon"
+        android:visibility="gone" />
+
+    <Button
+        android:id="@+id/btnBack"
+        android:layout_width="85dp"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:gravity="center"
+        android:text="@string/BACK"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:background="@drawable/positive_selector"
+        android:visibility="gone" />
+
+    <com.cloverstudio.spikademo.view.MyriadProTextView
+        android:id="@+id/tvTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="@string/PROFILE"
+        android:textColor="@android:color/white"
+        android:textSize="16sp"
+        android:ellipsize="end" />
+
+    <Button
+        android:id="@+id/btnContacts"
+        android:layout_width="95dp"
+        android:layout_height="match_parent"
+        android:layout_alignParentRight="true"
+        android:background="@drawable/positive_selector"
+        android:gravity="center"
+        android:paddingLeft="6dp"
+        android:paddingRight="6dp"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textColor="@android:color/white"
+        android:visibility="gone" />
+
+</RelativeLayout>

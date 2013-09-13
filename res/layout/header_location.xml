@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rlTitle"
+    android:layout_width="match_parent"
+    android:layout_height="44dp"
+    android:layout_alignParentTop="true"
+    android:background="@drawable/header_background" >
+
+    <Button
+        android:id="@+id/btnBack"
+        android:layout_width="85dp"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:gravity="center"
+        android:text="@string/BACK"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:background="@drawable/positive_selector"
+        android:visibility="gone" />
+
+    <com.cloverstudio.spikademo.view.MyriadProTextView
+        android:id="@+id/tvTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="@string/USERS"
+        android:textColor="@android:color/white"
+        android:textSize="16sp" />
+
+    <Button
+        android:id="@+id/btnSend"
+        android:layout_width="85dp"
+        android:layout_height="match_parent"
+        android:layout_alignParentRight="true"
+        android:background="@drawable/positive_selector"
+        android:scaleType="fitCenter"
+        android:gravity="center"
+        android:text="@string/SEND"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+</RelativeLayout>

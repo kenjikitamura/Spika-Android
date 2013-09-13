@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rlLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="15dp"
+    android:clipToPadding="false"
+    android:paddingTop="15dp"
+    android:visibility="visible" >
+
+    <RelativeLayout
+        android:id="@+id/llMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@+id/btnAvatar"
+        android:clipToPadding="false"
+        android:orientation="vertical"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="10dp" >
+
+        <ImageView
+            android:id="@+id/ivForLocationOrVoice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_marginRight="5dp"
+            android:background="@drawable/white_square"
+            android:contentDescription="@null"
+            android:scaleType="center"
+            android:visibility="visible" />
+
+        <RelativeLayout
+            android:id="@+id/rlForBackground"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_toRightOf="@+id/ivForLocationOrVoice"
+            android:background="@drawable/wall_msg_me"
+            android:clipToPadding="false"
+            android:paddingBottom="5dp"
+            android:paddingLeft="5dp"
+            android:paddingRight="15dp"
+            android:paddingTop="5dp" >
+
+            <RelativeLayout
+                android:id="@+id/rlImage"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:gravity="center" >
+
+                <ImageView
+                    android:id="@+id/ivMessagePhoto"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_centerInParent="true"
+                    android:background="@color/loading_background"
+                    android:contentDescription="@null"
+                    android:scaleType="fitXY" />
+
+                <ProgressBar
+                    android:id="@+id/pbLoadingForImage"
+                    style="@style/CustomProgressBar"
+                    android:layout_width="30px"
+                    android:layout_height="30px"
+                    android:layout_centerInParent="true"
+                    android:visibility="gone" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/messageText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_gravity="right"
+                android:gravity="right"
+                android:textColor="@color/dark_gray_text"
+                android:textSize="15sp"
+                android:visibility="gone" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/messageSubText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignRight="@+id/rlForBackground"
+            android:layout_below="@+id/rlForBackground"
+            android:layout_gravity="right"
+            android:gravity="right"
+            android:paddingRight="15dp"
+            android:textColor="@color/light_gray_subtext"
+            android:textSize="12sp"
+            android:visibility="visible" />
+
+        <RelativeLayout
+            android:id="@+id/rlPhotoComments"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/rlForBackground"
+            android:layout_alignTop="@+id/rlForBackground"
+            android:layout_marginLeft="-4dp"
+            android:layout_marginTop="-8dp"
+            android:visibility="visible" >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:background="@drawable/comment_number_ballon"
+                android:contentDescription="@null" />
+
+            <TextView
+                android:id="@+id/tvPhotoComments"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="4dp"
+                android:text="4"
+                android:textColor="@android:color/white" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <ImageButton
+        android:id="@+id/btnAvatar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="10dp"
+        android:background="@null"
+        android:contentDescription="@null"
+        android:scaleType="fitXY"
+        android:src="@drawable/image_stub"
+        android:visibility="visible" />
+
+</RelativeLayout>

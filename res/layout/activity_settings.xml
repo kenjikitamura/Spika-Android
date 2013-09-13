@@ -1,0 +1,223 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SettingsActivity" >
+
+    <include layout="@layout/activity_sidebar" />
+
+    <RelativeLayout
+        android:id="@+id/rlBody"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:background="@drawable/main_background"
+        android:clickable="true"
+        android:descendantFocusability="beforeDescendants"
+        android:focusableInTouchMode="true" >
+
+        <RelativeLayout
+            android:id="@+id/rlSettings"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/header"
+            android:visibility="visible" >
+
+            <com.cloverstudio.spikademo.view.MyriadProTextView
+                android:id="@+id/tvServerUrl"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/etServerUrl"
+                android:layout_alignRight="@+id/etServerUrl"
+                android:layout_marginTop="26dp"
+                android:text="@string/please_enter_server_url"
+                android:textColor="@color/settings_text"
+                android:textSize="16sp"
+                android:visibility="gone" />
+
+            <EditText
+                android:id="@+id/etServerUrl"
+                android:layout_width="276dp"
+                android:layout_height="45dp"
+                android:layout_below="@+id/tvServerUrl"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:background="@android:color/white"
+                android:gravity="center_vertical|left"
+                android:hint="@string/server_url_hint"
+                android:inputType="textUri"
+                android:paddingLeft="27dp"
+                android:paddingRight="27dp"
+                android:textColor="@color/hookup_alert"
+                android:textSize="16sp"
+                android:ellipsize="end"
+                android:visibility="gone" />
+
+            <RelativeLayout
+                android:id="@+id/rlPasscodeProtect"
+                android:layout_width="276dp"
+                android:layout_centerHorizontal="true"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/etServerUrl"
+                android:layout_alignRight="@+id/etServerUrl"
+                android:layout_below="@+id/rlPassword"
+                android:layout_marginTop="35dp"
+                android:gravity="center_vertical" >
+
+                <com.cloverstudio.spikademo.view.MyriadProTextView
+                    android:id="@+id/tvPasscodeProtect"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="@string/passcode_protect"
+                    android:textColor="@color/settings_text"
+                    android:textSize="16sp" />
+
+                <ToggleButton
+                    android:id="@+id/btnPasscodeProtect"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/on_off_button_selector"
+                    android:button="@null"
+                    android:checked="false"
+                    android:textOff=""
+                    android:textOn="" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/rlPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/rlPasscodeProtect"
+                android:layout_alignRight="@+id/rlPasscodeProtect"
+                android:layout_below="@+id/etServerUrl"
+                android:layout_marginTop="26dp"
+                android:gravity="center_vertical"
+                android:orientation="vertical" >
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:gravity="center_vertical" >
+
+                    <com.cloverstudio.spikademo.view.MyriadProTextView
+                        android:id="@+id/tvPassword"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:text="@string/PASSWORD"
+                        android:textColor="@color/settings_text"
+                        android:textSize="16sp" />
+
+                    <Button
+                        android:id="@+id/btnChangePassword"
+                        android:layout_width="wrap_content"
+                        android:layout_height="35dp"
+                        android:layout_alignParentRight="true"
+                        android:background="@drawable/rounded_rect_alert_selector"
+                        android:paddingLeft="14dp"
+                        android:paddingRight="14dp"
+                        android:text="@string/CHANGE_PASSWORD"
+                        android:textColor="@android:color/white"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:layout_marginTop="15dp"
+                    android:gravity="center_vertical"
+                    android:visibility="gone" >
+
+                    <EditText
+                        android:id="@+id/etPassword"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentLeft="true"
+                        android:layout_marginRight="16dp"
+                        android:layout_toLeftOf="@+id/btnShowPassword"
+                        android:background="@android:color/white"
+                        android:drawableLeft="@drawable/password_icon"
+                        android:drawablePadding="5dp"
+                        android:gravity="center_vertical|left"
+                        android:inputType="textPassword"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:singleLine="true"
+                        android:text="jashashgasuasioaisioas"
+                        android:textColor="@color/sign_in_light_gray"
+                        android:textSize="16sp" />
+
+                    <ToggleButton
+                        android:id="@+id/btnShowPassword"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:background="@drawable/show_hide_button_selector"
+                        android:button="@null"
+                        android:checked="false"
+                        android:textOff=""
+                        android:textOn="" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btnClearCache"
+                android:layout_width="180dp"
+                android:layout_height="35dp"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="40dp"
+                android:background="@drawable/rounded_rect_alert_selector"
+                android:gravity="center"
+                android:text="@string/CLEAR_CACHE"
+                android:textColor="@android:color/white"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+        </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/ivShadow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/header"
+            android:background="@drawable/top_shadow"
+            android:contentDescription="@null" />
+
+        <RelativeLayout
+            android:id="@+id/rlNoInternetNotification"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/header"
+            android:visibility="gone" >
+
+            <include layout="@layout/no_internet_notification" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rlPushNotification"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/header"
+            android:visibility="gone" >
+
+            <include layout="@layout/push_notification" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/header"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true" >
+
+            <include layout="@layout/header" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+</RelativeLayout>

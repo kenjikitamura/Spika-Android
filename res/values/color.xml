@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <color name="sign_in_dark_gray">#1f1f1f</color>
+    <color name="sign_in_gray">#292929</color>
+    <color name="sign_in_turquoise">#15c1cf</color>
+    <color name="sign_in_light_gray">#7d7d7d</color>
+    
+    <color name="side_bar_light_gray">#999999</color>
+    
+    <color name="light_red">#E81757</color>
+    
+    <color name="hookup_alert">#f1015d</color>
+    <color name="alert_off">#f1015d</color>
+    <color name="alert_on">#fa80ae</color>
+    
+    <color name="dark_gray_text">#222222</color>
+    <color name="dim_gray_text">#6a6a6a</color>
+    <color name="light_gray_subtext">#888888</color>
+    
+    <color name="hookup_positive">#2fcb72</color>
+    <color name="positive_off">#2fcb72</color>
+    <color name="positive_on">#97e5b9</color>
+    
+    <color name="loading_background">#ebebeb</color>
+    <color name="loading_title">#a4a4a4</color>
+    <color name="hookup_gray">#a4a4a4</color>
+    
+    <!-- neutral = gray -->
+    
+    <color name="button_neutral_off">#333333</color>
+    <color name="button_neutral_on">#999999</color>
+    
+    <!-- positive = green -->
+    
+    <color name="button_positive_off">#2fcb72</color>
+    <color name="button_positive_on">#97e5b9</color>
+    
+    <!-- alert = pink -->
+    
+    <color name="button_alert_off">#f1015d</color>
+    <color name="button_alert_on">#fa80ae</color>
+    
+    <color name="no_connection_background">#CDe81757</color>
+    
+    <color name="push_notification_background">#E61D1D1D</color>
+    
+    <color name="hookup_light_neutral">#c8c8c8</color>
+    <color name="hookup_neutral">#333333</color>
+    
+    <color name="settings_text">#1b1b1b</color>
+    
+    <color name="sidemenu_background">#1b1b1b</color>
+    <color name="sidemenu_header">#090909</color>
+    <color name="sidemenu_divider">#242424</color>
+    
+    <color name="sidemenu_button_off">#1b1b1b</color>
+    <color name="sidemenu_button_on">#323232</color>
+    
+    <color name="dim_background">#80323232</color>
+    
+</resources>

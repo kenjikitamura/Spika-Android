@@ -1,0 +1,119 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/sidemenu_background"
+    tools:context=".UsersActivity" >
+
+    <include layout="@layout/activity_sidebar" />
+
+    <RelativeLayout
+        android:id="@+id/rlSubMenuHolder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:background="@color/sidemenu_background" >
+
+        <include layout="@layout/user_submenu" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rlBody"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:background="@drawable/main_background"
+        android:clickable="true" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/header"
+            android:animateLayoutChanges="true"
+            android:orientation="vertical" >
+
+            <RelativeLayout
+                android:id="@+id/rlSearchUsers"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone" >
+
+                <include layout="@layout/name_search" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rlExploreUsers"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone" >
+
+                <include layout="@layout/user_explore" />
+            </RelativeLayout>
+
+            <com.cloverstudio.spikademo.view.MyriadProTextView
+                android:id="@+id/tvNoUsers"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:text="@string/no_users_found"
+                android:visibility="gone" />
+
+            <RelativeLayout
+                android:id="@+id/rlUsers"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingBottom="5dp"
+                android:paddingTop="5dp" >
+
+                <ListView
+                    android:id="@+id/lvUsers"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:cacheColorHint="@android:color/transparent"
+                    android:divider="@null"
+                    android:listSelector="@android:color/transparent"
+                    android:overScrollMode="never" >
+                </ListView>
+            </RelativeLayout>
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/ivShadow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/header"
+            android:background="@drawable/top_shadow"
+            android:contentDescription="@null" />
+
+        <RelativeLayout
+            android:id="@+id/rlNoInternetNotification"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/header"
+            android:visibility="gone" >
+
+            <include layout="@layout/no_internet_notification" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rlPushNotification"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/header"
+            android:visibility="gone" >
+
+            <include layout="@layout/push_notification" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/header"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true" >
+
+            <include layout="@layout/header_users" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+</RelativeLayout>

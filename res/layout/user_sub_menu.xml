@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:background="@android:color/black"
+    android:layout_gravity="right|center_vertical"
+    android:visibility="visible"
+    android:clickable="true" >
+
+    <RelativeLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/menu_header" >
+
+        <com.cloverstudio.spikademo.uitems.MyriadProTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/USER"
+            android:textColor="@android:color/white"
+            android:textSize="20sp" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/llUserSubMenuButtons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/header"
+        android:background="@drawable/submenu_background"
+        android:orientation="vertical"
+        android:paddingTop="20dp" >
+
+        <RelativeLayout
+            android:id="@+id/rlMyContacts"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clipToPadding="false"
+            android:paddingBottom="13dp"
+            android:paddingLeft="20dp"
+            android:paddingTop="20dp"
+            android:background="@android:drawable/list_selector_background" >
+
+            <ImageView
+                android:id="@+id/ivMyContacts"
+                android:layout_width="35dp"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:background="@null"
+                android:contentDescription="@null"
+                android:scaleType="centerInside"
+                android:src="@drawable/submenu_user_icon" />
+
+            <com.cloverstudio.spikademo.uitems.MyriadProTextView
+                android:id="@+id/tvMyContacts"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_toRightOf="@+id/ivMyContacts"
+                android:gravity="center_vertical"
+                android:text="@string/my_contacts"
+                android:textColor="@color/side_bar_light_gray"
+                android:textSize="18sp" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/sidemenu_divider" />
+
+        <RelativeLayout
+            android:id="@+id/rlSearch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clipToPadding="false"
+            android:paddingBottom="13dp"
+            android:paddingLeft="20dp"
+            android:paddingTop="20dp"
+            android:background="@android:drawable/list_selector_background" >
+
+            <ImageView
+                android:id="@+id/ivSearch"
+                android:layout_width="35dp"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:background="@null"
+                android:contentDescription="@null"
+                android:scaleType="centerInside"
+                android:src="@drawable/submenu_search_icon" />
+
+            <com.cloverstudio.spikademo.uitems.MyriadProTextView
+                android:id="@+id/tvSearch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_toRightOf="@+id/ivSearch"
+                android:clipToPadding="false"
+                android:gravity="center_vertical"
+                android:text="@string/search"
+                android:textColor="@color/side_bar_light_gray"
+                android:textSize="18sp" />
+        </RelativeLayout>
+        
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/sidemenu_divider" />
+      
+    </LinearLayout>
+
+</RelativeLayout>

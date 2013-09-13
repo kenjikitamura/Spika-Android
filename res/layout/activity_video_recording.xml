@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/main_background" >
+
+    <!-- Video has same header like location (title, back and send) -->
+    
+    
+    <RelativeLayout android:id="@+id/soundControler"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="20dp"
+        >
+        
+        <include layout="@layout/sound_controller"/>
+        
+    </RelativeLayout>
+
+    <VideoView
+        android:id="@+id/videoViewForVideo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rlForAvatarAndUserName"
+        android:layout_above="@+id/soundControler"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="20dp" />
+    
+    <RelativeLayout
+        android:id="@+id/rlForAvatarAndUserName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/header"
+        android:background="#66000000"
+        android:padding="10dp" >
+
+        <ImageView
+            android:id="@+id/ivAvatarVideo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/user_stub"
+            android:contentDescription="@null"
+            android:background="@color/loading_background"
+            android:scaleType="fitXY" />
+        
+        <EditText android:id="@+id/etNameOfUserVideo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/ivAvatarVideo"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_toRightOf="@+id/ivAvatarVideo"
+            android:textColor="@android:color/white"
+            android:textSize="25sp"
+            android:singleLine="true"
+            android:inputType="textNoSuggestions"
+            android:hint="Add video title"
+            android:textColorHint="@color/hookup_light_neutral"
+            android:background="@null"/>
+
+        <TextView
+            android:id="@+id/tvNameOfUserVideo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/ivAvatarVideo"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/ivAvatarVideo"
+            android:textColor="#ffffff"
+            android:textSize="25sp"
+            android:visibility="gone" />
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/ivShadow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/header"
+        android:background="@drawable/top_shadow"
+        android:contentDescription="@null" />
+
+    <RelativeLayout
+        android:id="@+id/rlNoInternetNotification"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/header"
+        android:visibility="gone" >
+
+        <include layout="@layout/no_internet_notification" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rlPushNotification"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/header"
+        android:visibility="gone" >
+
+        <include layout="@layout/push_notification" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true" >
+
+        <include layout="@layout/header_location" />
+    </RelativeLayout>
+
+</RelativeLayout>

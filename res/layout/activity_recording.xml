@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/main_background" >
+
+    <!-- Crop Image has same header like recording (title, back) -->
+    
+    <RelativeLayout
+        android:id="@+id/rlForAvatarAndUserName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/header"
+        android:background="#66000000"
+        android:padding="10dp" >
+
+        <ImageView
+            android:id="@+id/ivAvatarVoice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/user_stub"
+            android:contentDescription="@null"
+            android:background="@color/loading_background"
+            android:scaleType="fitXY"  />
+        
+        <EditText android:id="@+id/etNameOfUserVoice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/ivAvatarVoice"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_toRightOf="@+id/ivAvatarVoice"
+            android:textColor="@android:color/white"
+            android:textSize="25sp"
+            android:singleLine="true"
+            android:inputType="textNoSuggestions"
+            android:hint="Add voice title"
+            android:textColorHint="@color/hookup_light_neutral"
+            android:background="@null"/>
+
+    </RelativeLayout>
+
+    <com.cloverstudio.spikademo.view.MyriadProTextView
+        android:id="@+id/tvRecording"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rlForAvatarAndUserName"
+        android:gravity="left|top"
+        android:paddingBottom="10dp"
+        android:paddingLeft="40dp"
+        android:paddingTop="15dp"
+        android:text="TAP TO RECORD"
+        android:textSize="18sp" />
+
+    <Button
+        android:id="@+id/btnRecording"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvRecording"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/icon_microphone_selector" />
+
+    <Chronometer
+        android:id="@+id/recordTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnRecording"
+        android:layout_centerHorizontal="true"
+        android:padding="10dp"
+        android:textColor="@color/light_red"
+        android:textSize="40sp"
+        android:visibility="gone" />
+
+    <RelativeLayout
+        android:id="@+id/soundControler"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnRecording"
+        android:layout_marginLeft="2dp"
+        android:layout_marginRight="2dp"
+        android:layout_marginTop="10dp"
+        android:visibility="gone" >
+
+        <include layout="@layout/sound_controller" />
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/btnSendSound"
+        android:layout_width="175dp"
+        android:layout_height="35dp"
+        android:layout_below="@+id/soundControler"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/rounded_rect_positive_selector"
+        android:gravity="center"
+        android:text="@string/SEND"
+        android:textColor="@android:color/white"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:visibility="gone" />
+
+    <ImageView
+        android:id="@+id/ivShadow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/header"
+        android:background="@drawable/top_shadow"
+        android:contentDescription="@null" />
+
+    <RelativeLayout
+        android:id="@+id/rlNoInternetNotification"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/header"
+        android:visibility="gone" >
+
+        <include layout="@layout/no_internet_notification" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rlPushNotification"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/header"
+        android:visibility="gone" >
+
+        <include layout="@layout/push_notification" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true" >
+
+        <include layout="@layout/header_location" />
+    </RelativeLayout>
+
+</RelativeLayout>

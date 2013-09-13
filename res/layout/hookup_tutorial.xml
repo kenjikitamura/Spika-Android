@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <RelativeLayout
+        android:id="@+id/rlTutorial"
+        android:layout_width="290dp"
+        android:layout_height="182dp"
+        android:layout_marginTop="100dp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/tutorial_background" >
+
+        <com.cloverstudio.spikademo.view.MyriadProTextView
+            android:id="@+id/tvTutorialText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_alignParentTop="true"
+            android:gravity="center"
+            android:lineSpacingMultiplier="1.15"
+            android:paddingLeft="14dp"
+            android:paddingRight="14dp"
+            android:textColor="@color/light_gray_subtext"
+            android:textIsSelectable="false"
+            android:textSize="15sp"
+            android:layout_above="@+id/llControlButtons" />
+
+        <LinearLayout
+            android:id="@+id/llControlButtons"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:orientation="horizontal" >
+
+            <Button
+                android:id="@+id/btnOk"
+                android:layout_width="96dp"
+                android:layout_height="33dp"
+                android:background="@drawable/rounded_rect_positive_selector"
+                android:gravity="center"
+                android:text="@string/OK"
+                android:textColor="@android:color/white"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </RelativeLayout>
+
+</RelativeLayout>

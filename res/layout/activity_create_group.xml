@@ -1,0 +1,254 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    tools:context=".CreateGroupActivity" >
+
+    <include layout="@layout/activity_sidebar" />
+
+    <RelativeLayout
+        android:id="@+id/rlBody"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:clickable="true" >
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/header"
+            android:background="@drawable/main_background"
+            android:fadingEdge="none"
+            android:overScrollMode="never" >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="20dp" >
+
+                <RelativeLayout
+                    android:id="@+id/rlPhotoHolder"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_margin="10dp"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true" >
+
+                    <com.cloverstudio.spikademo.view.AspectRatioImageView
+                        android:id="@+id/ivGroupImage"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:contentDescription="@null"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/group_stub_large" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rlCreateGroup"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@+id/rlPhotoHolder"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp" >
+
+                    <RelativeLayout
+                        android:id="@+id/rlCategory"
+                        android:layout_width="match_parent"
+                        android:layout_height="47dp"
+                        android:layout_below="@+id/rlGroupName"
+                        android:layout_marginTop="5dp"
+                        android:background="@android:color/white" >
+
+                        <com.cloverstudio.spikademo.view.MyriadProTextView
+                            android:id="@+id/tvCategory"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="10dp"
+                            android:text="@string/CATEGORY"
+                            android:textColor="@android:color/black"
+                            android:textSize="16sp" />
+
+                        <Spinner
+                            android:id="@+id/spinnerCategory"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="5dp"
+                            android:layout_toRightOf="@+id/tvCategory"
+                            android:background="@android:color/white"
+                            android:spinnerMode="dialog"
+                            android:textColor="@color/hookup_positive"
+                            android:textSize="16sp" />
+                    </RelativeLayout>
+                    
+                                        
+                    <RelativeLayout
+                        android:id="@+id/rlGroupName"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_marginTop="6dp"
+                        android:background="@android:color/white" >
+
+                        <com.cloverstudio.spikademo.view.MyriadProTextView
+                            android:id="@+id/tvGroupName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="10dp"
+                            android:ellipsize="end"
+                            android:singleLine="true"
+                            android:text="@string/GROUP_NAME"
+                            android:textColor="@android:color/black"
+                            android:textSize="16sp" />
+
+                        <EditText
+                            android:id="@+id/etCreateGroupName"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginTop="6dp"
+                            android:layout_toRightOf="@+id/tvGroupName"
+                            android:background="@android:color/white"
+                            android:ellipsize="end"
+                            android:hint="@string/tap_to_add_group_name"
+                            android:inputType="text|textNoSuggestions"
+                            android:padding="5dp"
+                            android:singleLine="true"
+                            android:textColor="@color/hookup_positive"
+                            android:textSize="20sp" />
+                    </RelativeLayout>
+
+                   <RelativeLayout
+                        android:id="@+id/rlGroupPassword"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/rlGroupDescription"
+                        android:layout_marginTop="5dp"
+                        android:background="@android:color/white"
+                        android:minHeight="47dp" >
+
+                        <com.cloverstudio.spikademo.view.MyriadProTextView
+                            android:id="@+id/tvPassword"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="10dp"
+                            android:text="@string/PASSWORD"
+                            android:textColor="@android:color/black"
+                            android:textSize="16sp" />
+
+                        <EditText
+                            android:id="@+id/etCreateGroupPassword"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_toRightOf="@+id/tvPassword"
+                            android:background="@android:color/white"
+                            android:hint="@string/tap_to_add_password"
+                            android:inputType="textPassword"
+                            android:padding="5dp"
+                            android:singleLine="false"
+                            android:textColor="@color/hookup_positive"
+                            android:textSize="16sp" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/rlGroupDescription"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/rlCategory"
+                        android:layout_marginTop="5dp"
+                        android:background="@android:color/white"
+                        android:minHeight="47dp" >
+
+                        <com.cloverstudio.spikademo.view.MyriadProTextView
+                            android:id="@+id/tvDescription"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="10dp"
+                            android:text="@string/DESCRIPTION"
+                            android:textColor="@android:color/black"
+                            android:textSize="16sp" />
+
+                        <EditText
+                            android:id="@+id/etCreateGroupDescription"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_toRightOf="@+id/tvDescription"
+                            android:autoLink="web"
+                            android:background="@android:color/white"
+                            android:hint="@string/tap_to_add_description"
+                            android:inputType="textMultiLine|textNoSuggestions"
+                            android:linksClickable="true"
+                            android:padding="5dp"
+                            android:singleLine="false"
+                            android:textColor="@color/hookup_positive"
+                            android:textSize="16sp" />
+                    </RelativeLayout>
+
+ 
+                </RelativeLayout>
+
+                <Button
+                    android:id="@+id/btnCreateGroup"
+                    android:layout_width="213dp"
+                    android:layout_height="37dp"
+                    android:layout_below="@+id/rlCreateGroup"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/rounded_rect_positive_selector"
+                    android:text="@string/CREATE"
+                    android:textColor="@android:color/white"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+        </ScrollView>
+
+        <ImageView
+            android:id="@+id/ivShadow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/header"
+            android:background="@drawable/top_shadow"
+            android:contentDescription="@null" />
+
+        <RelativeLayout
+            android:id="@+id/rlNoInternetNotification"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/header"
+            android:visibility="gone" >
+
+            <include layout="@layout/no_internet_notification" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rlPushNotification"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/header"
+            android:visibility="gone" >
+
+            <include layout="@layout/push_notification" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/header"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true" >
+
+            <include layout="@layout/header_create_group" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+</RelativeLayout>
