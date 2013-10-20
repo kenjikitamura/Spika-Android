@@ -173,7 +173,7 @@ public class CouchDB {
             return null;
         }
 
-        return CouchDBHelper.createUser(ConnectionHandler.postJsonObject(userJson,
+        return CouchDBHelper.createUser(ConnectionHandler.postJsonObject("createUser",userJson,
                 Const.CREATE_USER, ""));
     }
 

@@ -169,6 +169,38 @@ public class ConnectionHandler {
 		return retVal;
 	}
 
+	
+    /**
+     * Http POST
+     * 
+     * @param create
+     * @return
+     */
+    public static JSONObject postJsonObject(String apiName,JSONObject create, String userId,
+            String token) {
+
+        JSONObject retVal = null;
+
+        try {
+
+            InputStream is = httpPostRequest(CouchDB.getUrl() + apiName, create, userId);
+            String result = getString(is);
+
+            is.close();
+
+            retVal = jObjectFromString(result);
+
+        } catch (Exception e) {
+
+            Logger.error(TAG + "postJsonObject", e);
+
+            return null;
+
+        }
+
+        return retVal;
+    }
+    
 	/**
 	 * Http POST
 	 * 
