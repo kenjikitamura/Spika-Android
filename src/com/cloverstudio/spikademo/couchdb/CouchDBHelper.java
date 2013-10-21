@@ -470,8 +470,8 @@ public class CouchDBHelper {
 						recentActivityJson.toString(), RecentActivity.class);
 
 				if (recentActivityJson.has(Const.NOTIFICATIONS)) {
-					JSONObject notificationsJson = recentActivityJson
-							.getJSONObject(Const.NOTIFICATIONS);
+					JSONArray notificationsJson = recentActivityJson
+							.getJSONArray(Const.NOTIFICATIONS);
 					recentActivity
 							.set_notifications(parseMultiNotificationObjects(notificationsJson));
 				}
@@ -492,27 +492,24 @@ public class CouchDBHelper {
 	 * @return
 	 */
 	public static List<Notification> parseMultiNotificationObjects(
-			JSONObject notificationsJson) {
+			JSONArray notificationsAry) {
 
 		List<Notification> notifications = new ArrayList<Notification>();
 
-		@SuppressWarnings("unchecked")
-		Iterator<String> iterator = notificationsJson.keys();
-		while (iterator.hasNext()) {
-			String key = iterator.next();
+		for(int i = 0 ; i < notificationsAry.length() ; i++){
+
 			try {
-				JSONObject notificationJson = notificationsJson
-						.getJSONObject(key);
+				JSONObject notificationJson = (JSONObject) notificationsAry.get(i);
 				Notification notification = new Notification();
 				notification = sGsonExpose.fromJson(
 						notificationJson.toString(), Notification.class);
 
 				if (notificationJson.has(Const.MESSAGES)) {
-					JSONObject messagesJson = notificationJson
-							.getJSONObject(Const.MESSAGES);
+					JSONArray messagesAry = notificationJson
+							.getJSONArray(Const.MESSAGES);
 					notification
 							.setMessages(parseMultiNotificationMessageObjects(
-									messagesJson, notification.getTargetId()));
+							        messagesAry, notification.getTargetId()));
 				}
 
 				notifications.add(notification);
@@ -530,16 +527,13 @@ public class CouchDBHelper {
 	 * @return
 	 */
 	public static List<NotificationMessage> parseMultiNotificationMessageObjects(
-			JSONObject messagesJson, String targetId) {
+			JSONArray messagesArray, String targetId) {
 
 		List<NotificationMessage> messages = new ArrayList<NotificationMessage>();
 
-		@SuppressWarnings("unchecked")
-		Iterator<String> iterator = messagesJson.keys();
-		while (iterator.hasNext()) {
-			String key = iterator.next();
+		for(int i = 0; i < messagesArray.length() ; i++){
 			try {
-				JSONObject messageJson = messagesJson.getJSONObject(key);
+				JSONObject messageJson = (JSONObject) messagesArray.get(i);
 				NotificationMessage notificationMessage = new NotificationMessage();
 				notificationMessage = sGsonExpose.fromJson(
 						messageJson.toString(), NotificationMessage.class);
