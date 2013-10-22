@@ -1,7 +1,7 @@
 /*
  * The MIT License (MIT)
  * 
- * Copyright ï¿½ 2013 Clover Studio Ltd. All rights reserved.
+ * Copyright ½ 2013 Clover Studio Ltd. All rights reserved.
  * 
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -25,6 +25,7 @@
 package com.cloverstudio.spikademo.couchdb;
 
 import java.io.File;
+import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.ArrayList;
@@ -542,8 +543,10 @@ public class CouchDB {
      * 
      * @param email
      * @return
+     * @throws JSONException 
+     * @throws IOException 
      */
-    public static String auth(String email, String password) {
+    public static String auth(String email, String password) throws IOException, JSONException {
 
         JSONObject jPost = new JSONObject();
 
@@ -557,41 +560,26 @@ public class CouchDB {
         JSONObject json = ConnectionHandler.postAuth(jPost);
 
         User user = null;
-        try {
-            Log.e("CouchDB", "auth");
 
-            user = CouchDBHelper.parseSingleUserObject(json);
+        Log.e("CouchDB", "auth");
+
+        user = CouchDBHelper.parseSingleUserObject(json);
             
-            if (user != null) {
+        if (user != null) {
 
-                SpikaApp.getPreferences().setUserToken(user.getToken());
-                SpikaApp.getPreferences().setUserEmail(user.getEmail());
-                SpikaApp.getPreferences().setUserId(user.getId());
-                SpikaApp.getPreferences().setUserPassword(user.getPassword());
+        	SpikaApp.getPreferences().setUserToken(user.getToken());
+        	SpikaApp.getPreferences().setUserEmail(user.getEmail());
+        	SpikaApp.getPreferences().setUserId(user.getId());
+        	SpikaApp.getPreferences().setUserPassword(user.getPassword());
 
-                UsersManagement.setLoginUser(user);
-                UsersManagement.setToUser(user);
-                UsersManagement.setToGroup(null);
+        	UsersManagement.setLoginUser(user);
+        	UsersManagement.setToUser(user);
+        	UsersManagement.setToGroup(null);
 
-                return Const.LOGIN_SUCCESS;
-            } else {
-                return Const.LOGIN_ERROR;
-            }
-        } catch (Exception e) {
-
-            e.printStackTrace();
-
-            if (json.has("error")) {
-
-                return Const.LOGIN_ERROR;
-
-            } else {
-                Logger.error(TAG + "parseSingleUserObject",
-                        "Error while retrieving data from json... Probably no user found!", e);
-            }
+        	return Const.LOGIN_SUCCESS;
+        } else {
+        	return Const.LOGIN_ERROR;
         }
-        return Const.LOGIN_ERROR;
-
     }
 
     /**
@@ -599,56 +587,39 @@ public class CouchDB {
      * 
      * @param email
      * @return
+     * @throws JSONException 
+     * @throws IOException 
      */
-    public static User getUserByEmailAndPassword(String email, String password) {
+    public static User getUserByEmailAndPassword(String email, String password) throws JSONException, IOException {
 
         JSONObject jPost = new JSONObject();
 
-        try {
-            jPost.put("email", email);
-            jPost.put("password", password);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
+        jPost.put("email", email);
+        jPost.put("password", password);
 
         JSONObject json = ConnectionHandler.postAuth(jPost);
 
         User user = null;
-        try {
-            Log.e("CouchDB", "auth");
 
-            user = CouchDBHelper.parseSingleUserObject(json);
+        Log.e("CouchDB", "auth");
 
-            if (user != null) {
+        user = CouchDBHelper.parseSingleUserObject(json);
 
-                SpikaApp.getPreferences().setUserToken(user.getToken());
-                SpikaApp.getPreferences().setUserEmail(user.getEmail());
-                SpikaApp.getPreferences().setUserId(user.getId());
-                SpikaApp.getPreferences().setUserPassword(user.getPassword());
+        if (user != null) {
 
-                UsersManagement.setLoginUser(user);
-                UsersManagement.setToUser(user);
-                UsersManagement.setToGroup(null);
+        	SpikaApp.getPreferences().setUserToken(user.getToken());
+        	SpikaApp.getPreferences().setUserEmail(user.getEmail());
+        	SpikaApp.getPreferences().setUserId(user.getId());
+        	SpikaApp.getPreferences().setUserPassword(user.getPassword());
 
-                return user;
-            } else {
-                return null;
-            }
-        } catch (Exception e) {
+        	UsersManagement.setLoginUser(user);
+        	UsersManagement.setToUser(user);
+        	UsersManagement.setToGroup(null);
 
-            e.printStackTrace();
-
-            if (json.has("error")) {
-
-                return null;
-
-            } else {
-                Logger.error(TAG + "parseSingleUserObject",
-                        "Error while retrieving data from json... Probably no user found!", e);
-            }
+        	return user;
+        } else {
+        	return null;
         }
-        return null;
-
     }
 
     
@@ -1043,7 +1014,7 @@ public class CouchDB {
             return null;
         }
 
-        return CouchDBHelper.createUserGroup(ConnectionHandler.postJsonObject(userGroupJson,
+        return CouchDBHelper.createUserGroup(ConnectionHandler.deprecatedPostJsonObject(userGroupJson,
                 UsersManagement.getLoginUser().getId(), UsersManagement.getLoginUser().getToken()));
     }
 
@@ -1151,7 +1122,7 @@ public class CouchDB {
             return null;
         }
 
-        return CouchDBHelper.createGroup(ConnectionHandler.postJsonObject(groupJson,
+        return CouchDBHelper.createGroup(ConnectionHandler.deprecatedPostJsonObject(groupJson,
                 UsersManagement.getLoginUser().getId(), UsersManagement.getLoginUser().getToken()));
     }
 
@@ -1457,7 +1428,7 @@ public class CouchDB {
             resultOfCouchDB = ConnectionHandler.putJsonObject(jsonObj, m.getId(), UsersManagement
                     .getLoginUser().getId(), UsersManagement.getLoginUser().getToken());
         } else {
-            resultOfCouchDB = ConnectionHandler.postJsonObject(jsonObj, UsersManagement
+            resultOfCouchDB = ConnectionHandler.deprecatedPostJsonObject(jsonObj, UsersManagement
                     .getLoginUser().getId(), UsersManagement.getLoginUser().getToken());
         }
 
@@ -1596,7 +1567,7 @@ public class CouchDB {
             resultOfCouchDB = ConnectionHandler.putJsonObject(jsonObj, m.getId(), UsersManagement
                     .getLoginUser().getId(), UsersManagement.getLoginUser().getToken());
         } else {
-            resultOfCouchDB = ConnectionHandler.postJsonObject(jsonObj, UsersManagement
+            resultOfCouchDB = ConnectionHandler.deprecatedPostJsonObject(jsonObj, UsersManagement
                     .getLoginUser().getId(), UsersManagement.getLoginUser().getToken());
         }
 
@@ -1694,7 +1665,7 @@ public class CouchDB {
             return null;
         }
 
-        return CouchDBHelper.createComment(ConnectionHandler.postJsonObject(commentJson,
+        return CouchDBHelper.createComment(ConnectionHandler.deprecatedPostJsonObject(commentJson,
                 UsersManagement.getLoginUser().getId(), UsersManagement.getLoginUser().getToken()));
     }
 
@@ -1789,7 +1760,7 @@ public class CouchDB {
             return null;
         }
 
-        return CouchDBHelper.createWatchingGroupLog(ConnectionHandler.postJsonObject(jsonObj,
+        return CouchDBHelper.createWatchingGroupLog(ConnectionHandler.deprecatedPostJsonObject(jsonObj,
         		UsersManagement.getLoginUser().getId(), ""));
     }
     

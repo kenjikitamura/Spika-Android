@@ -1,7 +1,7 @@
 /*
  * The MIT License (MIT)
  * 
- * Copyright ï¿½ 2013 Clover Studio Ltd. All rights reserved.
+ * Copyright ½ 2013 Clover Studio Ltd. All rights reserved.
  * 
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -24,6 +24,10 @@
 
 package com.cloverstudio.spikademo;
 
+import java.io.IOException;
+
+import org.json.JSONException;
+
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -32,7 +36,6 @@ import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -41,15 +44,14 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.cloverstudio.spikademo.R;
 import com.cloverstudio.spikademo.couchdb.CouchDB;
 import com.cloverstudio.spikademo.couchdb.model.ActivitySummary;
 import com.cloverstudio.spikademo.couchdb.model.User;
 import com.cloverstudio.spikademo.dialog.HookUpAlertDialog;
+import com.cloverstudio.spikademo.dialog.HookUpAlertDialog.ButtonType;
 import com.cloverstudio.spikademo.dialog.HookUpDialog;
 import com.cloverstudio.spikademo.dialog.HookUpProgressDialog;
 import com.cloverstudio.spikademo.dialog.Tutorial;
-import com.cloverstudio.spikademo.dialog.HookUpAlertDialog.ButtonType;
 import com.cloverstudio.spikademo.extendables.SpikaAsync;
 import com.cloverstudio.spikademo.management.FileManagement;
 import com.cloverstudio.spikademo.management.UsersManagement;
@@ -100,7 +102,7 @@ public class SignInActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_sign_in);
-		Initialization();
+		initialization();
 		sInstance = this;
 		SpikaApp.gOpenFromBackground = true;
 
@@ -116,7 +118,7 @@ public class SignInActivity extends Activity {
 		}
 	}
 
-	private void Initialization() {
+	private void initialization() {
 
 		// initialize singletons CouchDB & UsersManagement
 		new CouchDB();
@@ -559,6 +561,7 @@ public class SignInActivity extends Activity {
 	private class AuthentificationAsync extends AsyncTask<String, Void, String> {
 
 		private String action;
+		private Exception exception;
 
 		@Override
 		protected void onPreExecute() {
@@ -579,7 +582,22 @@ public class SignInActivity extends Activity {
 					return Const.LOGIN_ERROR;
 				} else {
 					mUserSignedIn = true;
-					return CouchDB.auth(mSignInEmail, mSignInPassword);
+					//return CouchDB.auth(mSignInEmail, mSignInPassword);
+					try {
+						return CouchDB.auth(mSignInEmail, mSignInPassword);
+					} catch (JSONException e) {
+						e.printStackTrace();
+						exception = e;
+						return Const.LOGIN_ERROR;
+					} catch (IOException e) {
+						e.printStackTrace();
+						exception = e;
+						return Const.LOGIN_ERROR;
+					} catch (Exception e){
+						e.printStackTrace();
+						exception = e;
+						return Const.LOGIN_ERROR;
+					}
 				}
 			} else if (action.equals("SignUp")) {
 				if (mSignUpName.equals("") && mSignUpEmail.equals("")
@@ -592,7 +610,16 @@ public class SignInActivity extends Activity {
 						String newUser = CouchDB.createUser(mSignUpName, mSignUpEmail,
 								mSignUpPassword);
 						
-						return CouchDB.auth(mSignUpEmail, mSignUpPassword);
+						//return CouchDB.auth(mSignUpEmail, mSignUpPassword);
+						try {
+							return CouchDB.auth(mSignUpEmail, mSignUpPassword);
+						} catch (JSONException e) {
+							exception = e;
+							return Const.LOGIN_ERROR;
+						} catch (IOException e) {
+							exception = e;
+							return Const.LOGIN_ERROR;
+						}
 					} else {
 						mUserCreated = false;
 					}
@@ -618,8 +645,18 @@ public class SignInActivity extends Activity {
 
 							final HookUpDialog dialog = new HookUpDialog(
 									SignInActivity.this);
-							dialog.showOnlyOK(getString(R.string.no_valid_email_password));
-
+							//dialog.showOnlyOK(getString(R.string.no_valid_email_password));
+							String errorMessage = null;
+							if (exception == null){
+								errorMessage = getString(R.string.no_valid_email_password);
+							}else if (exception instanceof IOException){
+							    errorMessage = getString(R.string.can_not_connect_to_server);
+							}else if(exception instanceof JSONException){
+							    errorMessage = getString(R.string.an_internal_error_has_occurred,exception.getClass().getName());
+							}else{
+							    errorMessage = getString(R.string.an_internal_error_has_occurred,exception.getClass().getName());
+							}
+							dialog.showOnlyOK(errorMessage);
 						}
 					} else {
 						if (action.equals("SignIn")) {

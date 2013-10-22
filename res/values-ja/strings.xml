@@ -113,6 +113,8 @@
     <string name="delete_group_message">グループを削除してもよろしいでしょうか？</string>
     <string name="no_internet_connection">インターネット接続を確認して下さい。</string>
     <string name="NO_INTERNET_CONNECTION">インターネット接続を確認して下さい。</string>
+    <string name="can_not_connect_to_server">サーバに接続できません。</string>
+    <string name="an_internal_error_has_occurred">内部エラーが発生しました。 (%1$s)</string>
     <string name="exit_app_message">アプリを閉じてもよろしいでしょうか？</string>
     <string name="please_enter_server_url">PLEASE ENTER SERVER URL</string>
     <string name="please_enter_passcode">現在のパスコードを入力して下さい。</string>

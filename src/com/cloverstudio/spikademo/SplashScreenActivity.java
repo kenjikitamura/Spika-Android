@@ -24,8 +24,11 @@
 
 package com.cloverstudio.spikademo;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
+
+import org.json.JSONException;
 
 import android.app.Activity;
 import android.content.Context;
@@ -33,14 +36,12 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.Log;
 import android.widget.Toast;
 
-import com.cloverstudio.spikademo.R;
 import com.cloverstudio.spikademo.couchdb.CouchDB;
 import com.cloverstudio.spikademo.couchdb.model.User;
-import com.cloverstudio.spikademo.extendables.SpikaAsync;
 import com.cloverstudio.spikademo.extendables.SideBarActivity;
+import com.cloverstudio.spikademo.extendables.SpikaAsync;
 import com.cloverstudio.spikademo.management.UsersManagement;
 import com.cloverstudio.spikademo.utils.Const;
 import com.cloverstudio.spikademo.utils.Preferences;
@@ -162,7 +163,14 @@ public class SplashScreenActivity extends Activity {
             String email = params[0];
             String passwrod = params[1];
 
-			User user = CouchDB.getUserByEmailAndPassword(email,passwrod);
+			User user = null;
+			try {
+				user = CouchDB.getUserByEmailAndPassword(email,passwrod);
+			} catch (JSONException e) {
+				// ignore. doInBackground return null.
+			} catch (IOException e) {
+				// ignore. doInBackground return null.
+			}
 			return user;
 		}
 
@@ -182,8 +190,15 @@ public class SplashScreenActivity extends Activity {
 		@Override
 		protected Boolean doInBackground(Void... params) {
 
-			return CouchDB.auth(mSavedEmail, mSavedPassword).equals(
-					Const.LOGIN_SUCCESS);
+			try {
+				return CouchDB.auth(mSavedEmail, mSavedPassword).equals(
+						Const.LOGIN_SUCCESS);
+			} catch (JSONException e) {
+				// ignore. doInBackground return false.
+			} catch (IOException e) {
+				// ignore. doInBackground return false.
+			}
+			return false;
 		}
 
 		@Override

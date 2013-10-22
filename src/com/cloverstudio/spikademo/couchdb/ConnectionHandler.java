@@ -1,7 +1,7 @@
 /*
  * The MIT License (MIT)
  * 
- * Copyright ï¿½ 2013 Clover Studio Ltd. All rights reserved.
+ * Copyright ½ 2013 Clover Studio Ltd. All rights reserved.
  * 
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -214,9 +214,10 @@ public class ConnectionHandler {
 	 * Http POST
 	 * 
 	 * @param create
+	 * @deprecated Because the exception is not used.
 	 * @return
 	 */
-	public static JSONObject postJsonObject(JSONObject create, String userId,
+    @Deprecated public static JSONObject deprecatedPostJsonObject(JSONObject create, String userId,
 			String token) {
 
 		JSONObject retVal = null;
@@ -241,14 +242,39 @@ public class ConnectionHandler {
 		Log.e("Response: ", retVal.toString());
 		return retVal;
 	}
+    
+	/**
+	 * Http POST
+	 * 
+	 * @param create
+	 * @return
+	 * @throws IOException 
+	 * @throws JSONException 
+	 */
+    public static JSONObject postJsonObject(JSONObject create, String userId,
+			String token) throws IOException, JSONException {
+
+		JSONObject retVal = null;
+
+		InputStream is = httpPostRequest(CouchDB.getUrl(), create, userId);
+		String result = getString(is);
+
+		is.close();
+
+		retVal = jObjectFromString(result);
+
+		Log.e("Response: ", retVal.toString());
+		return retVal;
+	}
 
 	/**
 	 * Http Auth POST
 	 * 
 	 * @param create
+	 * @deprecated Because the exception is not used.
 	 * @return
 	 */
-	public static JSONObject postAuth(JSONObject jPost) {
+    @Deprecated public static JSONObject deprecatedPostAuth(JSONObject jPost) {
 
 		JSONObject retVal = null;
 
@@ -270,6 +296,29 @@ public class ConnectionHandler {
 		}
 
 		Log.e("Response: ", retVal.toString());
+		return retVal;
+	}
+    
+	/**
+	 * Http Auth POST
+	 * 
+	 * @param create
+	 * @return
+	 * @throws IOException
+	 * @throws JSONException
+	 */
+	public static JSONObject postAuth(JSONObject jPost) throws IOException,
+			JSONException {
+
+		JSONObject retVal = null;
+
+		InputStream is = httpPostRequest(CouchDB.getAuthUrl(), jPost, "");
+		String result = getString(is);
+
+		is.close();
+
+		retVal = jObjectFromString(result);
+
 		return retVal;
 	}
 
