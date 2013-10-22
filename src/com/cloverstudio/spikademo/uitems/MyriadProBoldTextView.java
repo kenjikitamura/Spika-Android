@@ -42,7 +42,7 @@ import android.widget.TextView;
 
 public class MyriadProBoldTextView extends TextView {
 	
-	private String font="fonts/MyriadPro-Bold.otf";
+	private String font="fonts/Roboto-Bold.ttf";
 	private Typeface mTypeface;
 	
 	public MyriadProBoldTextView(Context context) {
