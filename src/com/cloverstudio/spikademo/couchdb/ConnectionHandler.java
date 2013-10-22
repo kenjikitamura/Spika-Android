@@ -1,7 +1,7 @@
 /*
  * The MIT License (MIT)
  * 
- * Copyright © 2013 Clover Studio Ltd. All rights reserved.
+ * Copyright ï¿½ 2013 Clover Studio Ltd. All rights reserved.
  * 
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -26,21 +26,25 @@ package com.cloverstudio.spikademo.couchdb;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
+import org.apache.http.Header;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.HttpVersion;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpDelete;
+import org.apache.http.client.methods.HttpEntityEnclosingRequestBase;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.client.methods.HttpPut;
+import org.apache.http.client.methods.HttpRequestBase;
 import org.apache.http.conn.ClientConnectionManager;
 import org.apache.http.conn.scheme.PlainSocketFactory;
 import org.apache.http.conn.scheme.Scheme;
@@ -59,6 +63,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.graphics.Bitmap;
+import android.util.Log;
 
 import com.cloverstudio.spikademo.SpikaApp;
 import com.cloverstudio.spikademo.management.BitmapManagement;
@@ -106,6 +111,7 @@ public class ConnectionHandler {
 
 		}
 
+		Log.e("Response: ", retVal.toString());
 		return retVal;
 	}
 	
@@ -135,6 +141,7 @@ public class ConnectionHandler {
 
 		}
 
+		Log.e("Response: ", result.toString());
 		return result;
 	}
 	
@@ -166,6 +173,7 @@ public class ConnectionHandler {
 
 		}
 
+		Log.e("Response: ", retVal.toString());
 		return retVal;
 	}
 
@@ -198,6 +206,7 @@ public class ConnectionHandler {
 
         }
 
+        Log.e("Response: ", retVal.toString());
         return retVal;
     }
     
@@ -228,7 +237,8 @@ public class ConnectionHandler {
 			return null;
 
 		}
-
+		
+		Log.e("Response: ", retVal.toString());
 		return retVal;
 	}
 
@@ -259,6 +269,7 @@ public class ConnectionHandler {
 
 		}
 
+		Log.e("Response: ", retVal.toString());
 		return retVal;
 	}
 
@@ -483,6 +494,8 @@ public class ConnectionHandler {
 		
 		Logger.error("httpGetRequest", SpikaApp.getPreferences().getUserToken());
 
+		print (httpget);
+		
 		HttpResponse response = HttpSingleton.getInstance().execute(httpget);
 		HttpEntity entity = response.getEntity();
 
@@ -530,9 +543,11 @@ public class ConnectionHandler {
 
 		httppost.setEntity(stringEntity);
 
+		print (httppost);
+		
 		HttpResponse response = HttpSingleton.getInstance().execute(httppost);
 		HttpEntity entity = response.getEntity();
-
+		
 		return entity.getContent();
 	}
 
@@ -576,6 +591,8 @@ public class ConnectionHandler {
 
 		httpput.setEntity(stringEntity);
 
+		print (httpput);
+		
 		HttpResponse response = HttpSingleton.getInstance().execute(httpput);
 		HttpEntity entity = response.getEntity();
 
@@ -613,10 +630,11 @@ public class ConnectionHandler {
         if(token != null && token.length() > 0)
             httpdelete.setHeader("token", token);
         
-
+        print (httpdelete);
+        
 		HttpResponse response = HttpSingleton.getInstance().execute(httpdelete);
 		HttpEntity entity = response.getEntity();
-
+		
 		return entity.getContent();
 	}
 
@@ -654,4 +672,35 @@ public class ConnectionHandler {
 		}
 	}
 
+	public static void print (HttpEntity entity) throws IOException
+	{
+		ByteArrayOutputStream outstream = new ByteArrayOutputStream();
+		entity.writeTo(outstream);
+		String content = outstream.toString();
+		Log.e("content", content);
+	}
+	
+	public static void print (HttpEntityEnclosingRequestBase httpMethod) throws IOException
+	{
+		Log.e (httpMethod.getMethod(), httpMethod.getURI().toString());
+		Log.e (httpMethod.getMethod(), httpMethod.getRequestLine().toString());
+		
+		print(httpMethod.getEntity());
+		
+		Header[] headers = httpMethod.getAllHeaders();
+		for (Header header : headers) {
+			Log.e("headers", header.toString());
+		}
+	}
+	
+	public static void print (HttpRequestBase httpMethod)
+	{
+		Log.e (httpMethod.getMethod(), httpMethod.getURI().toString());
+		Log.e (httpMethod.getMethod(), httpMethod.getRequestLine().toString());
+				
+		Header[] headers = httpMethod.getAllHeaders();
+		for (Header header : headers) {
+			Log.e("headers", header.toString());
+		}
+	}
 }

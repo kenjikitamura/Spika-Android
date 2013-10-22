@@ -1,7 +1,7 @@
 /*
  * The MIT License (MIT)
  * 
- * Copyright © 2013 Clover Studio Ltd. All rights reserved.
+ * Copyright ï¿½ 2013 Clover Studio Ltd. All rights reserved.
  * 
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -167,12 +167,15 @@ public class CouchDB {
             userJson.put(Const.TOKEN, Utils.generateToken());
             userJson.put(Const.MAX_CONTACT_COUNT, Const.MAX_CONTACTS);
             userJson.put(Const.MAX_FAVORITE_COUNT, Const.MAX_FAVORITES);
+            userJson.put(Const.ONLINE_STATUS, Const.ONLINE);
         } catch (JSONException e) {
             e.printStackTrace();
 
             return null;
         }
 
+        Log.e("Json", userJson.toString());
+        
         return CouchDBHelper.createUser(ConnectionHandler.postJsonObject("createUser",userJson,
                 Const.CREATE_USER, ""));
     }
