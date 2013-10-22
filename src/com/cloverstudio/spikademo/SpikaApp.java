@@ -119,9 +119,9 @@ public class SpikaApp extends Application {
 
 		// Create typefaces
 		mTfMyriadPro = Typeface.createFromAsset(getAssets(),
-				"fonts/MyriadPro-Regular.otf");
+				"fonts/Roboto-Regular.ttf");
 		mTfMyriadProBold = Typeface.createFromAsset(getAssets(),
-				"fonts/MyriadPro-Bold.otf");
+				"fonts/Roboto-Bold.ttf");
 
 		setTransportBasedOnScreenDensity(42);
 
